@@ -1,0 +1,57 @@
+<aside class="app-aside app-aside-expand-md app-aside-light">
+  <div class="aside-content">
+    <header class="aside-header d-block d-md-none">
+      <button class="btn-account" type="button" data-toggle="collapse" data-target="#dropdown-aside"><span class="user-avatar user-avatar-lg"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIn-gE6j6sjvg0ekFgFBIzVP5VdN3aBu9dLg&s" alt=""></span> <span class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span class="account-summary"><span class="account-name">Wang Yibo</span> <span class="account-description">Manager</span></span></button>
+
+      <div id="dropdown-aside" class="dropdown-aside collapse">
+        <!-- dropdown-items -->
+        <div class="pb-3">
+          <a class="dropdown-item" href="javascript:void(0)"><span class="dropdown-icon oi oi-person"></span> Profile</a> <a class="dropdown-item" href="javascript:void(0)"><span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+          <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:void(0)">Profile</a> <a class="dropdown-item" href="javascript:void(0)">Ask Forum</a> <a class="dropdown-item" href="javascript:void(0)">Keyboard Shortcuts</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="aside-menu overflow-hidden ps">
+      <nav id="stacked-menu" class="stacked-menu stacked-menu-has-collapsible">
+        <ul class="menu">
+          <li class="menu-item xxxx_has-active">
+            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Dashboard</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.map') }}" class="menu-link"><span class="menu-icon fas fa-map"></span> <span class="menu-text">Map</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.vehicles') }}" class="menu-link"><span class="menu-icon fas fa-car"></span> <span class="menu-text">Vehicles</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-triangle-exclamation"></span> <span class="menu-text">Alerts</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-bell"></span> <span class="menu-text">Reminders</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-chart-simple"></span> <span class="menu-text">Analytics</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-route"></span> <span class="menu-text">Routing</span></a>
+          </li>
+
+          <li class="menu-item">
+            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-wrench"></span> <span class="menu-text">Service</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer class="aside-footer border-top p-2">
+      <button class="btn btn-light btn-block text-primary" data-toggle="skin"><span class="d-compact-menu-none">Night mode</span> <i class="fas fa-moon ml-1"></i></button>
+    </footer>
+  </div>
+</aside>

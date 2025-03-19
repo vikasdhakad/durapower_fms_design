@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Durapower FMS -  {% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href=" https://cdn.jsdelivr.net/npm/open-iconic@1.1.1/font/css/open-iconic-bootstrap.min.css " rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://uselooper.com/assets/vendor/flatpickr/flatpickr.min.css">
+
+    <link rel="stylesheet" href="https://uselooper.com/assets/stylesheets/theme.min.css" data-skin="default">
+    <link rel="stylesheet" href="https://uselooper.com/assets/stylesheets/theme-dark.min.css" data-skin="dark">
+    <link rel="stylesheet" href="https://uselooper.com/assets/stylesheets/custom.css">
+
+    {% block extra_css %}
+      <!-- Link to the custom CSS file -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% endblock %}
+
+    <script>
+      var skin = localStorage.getItem('skin') || 'default';
+      var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
+      // Disable unused skin immediately
+      disabledSkinStylesheet.setAttribute('rel', '');
+      disabledSkinStylesheet.setAttribute('disabled', true);
+      // add loading class to html immediately
+      document.querySelector('html').classList.add('loading');
+    </script><!-- END THEME STYLES -->
+
+  </head>
+  <body>
+    <div class="app">
+      {% include "header.html" %}
+      {% include "sidebar.html" %}
+
+      <main class="app-main">
+        <div class="wrapper">
+          <div class="page">
+            <div class="page-inner">
+              {% block content %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+
+  <script src="https://uselooper.com/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/popper.js/umd/popper.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/bootstrap/js/bootstrap.min.js"></script> 
+
+  <script src="https://uselooper.com/assets/vendor/pace-progress/pace.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/stacked-menu/js/stacked-menu.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/flatpickr/flatpickr.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/chart.js/Chart.min.js"></script>
+
+  <script src="https://uselooper.com/assets/javascript/theme.min.js"></script>
+  <!-- <script src="https://uselooper.com/assets/javascript/pages/dashboard-demo.js"></script> -->
+
+  {% block extra_js %}
+    <!-- Link to the custom JavaScript file -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% endblock %}
+</html>
