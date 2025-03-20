@@ -2,12 +2,24 @@
 {% block content %}
   <div class="row">
     <div class="col-xl-12">
-      <div class="card card-fluid" style="height: 100vh">
-        <div class="card-body" style="height: 100vh">
-          {% include "dashboard/map.html" %}
+      <div class="card card-fluid">
+        <div class="card-body" style="height: 100vh;padding: 0;">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="input-group input-group-alt mt-2 ml-2">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
+                  </div><input type="text" class="form-control" id="pi8" placeholder="Search">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="{{ url_for('main.map_display') }}"></iframe>
+          </div>
         </div>
       </div>
     </div>
   </div>
 {% endblock %}
-

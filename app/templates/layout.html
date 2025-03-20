@@ -64,8 +64,23 @@
   <script src="https://uselooper.com/assets/javascript/theme.min.js"></script>
   <!-- <script src="https://uselooper.com/assets/javascript/pages/dashboard-demo.js"></script> -->
 
+  <!-- Charts and bars -->
+  <script src="http://cdn.jsdelivr.net/jquery.flot/0.8.3/jquery.flot.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/flot/jquery.flot.resize.js"></script>
+  <script src="https://uselooper.com/assets/vendor/flot/jquery.flot.categories.js"></script>
+  <script src="https://uselooper.com/assets/vendor/flot/jquery.flot.time.js"></script>
+
+  <script src="https://uselooper.com/assets/javascript/theme.min.js"></script>
+  <script src="https://uselooper.com/assets/javascript/pages/jquery.flot.axislabels.min.js"></script>
+
   {% block extra_js %}
-    <!-- Link to the custom JavaScript file -->
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% if request.path == '/' %}
+      <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    {% elif request.path == '/service' %}
+      <script src="{{ url_for('static', filename='js/service.js') }}"></script>
+    {% else %}
+      <!-- Default or other page scripts can be added here -->
+    {% endif %}
   {% endblock %}
 </html>

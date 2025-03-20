@@ -1,221 +1,119 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="row">
-    <div class="col-xl-12">
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-      <style>
-        .vehicle-show .card {
-          margin-bottom: 20px;
-        }
-        .vehicle-show .card-header {
-          font-size: 1.2rem;
-          font-weight: bold;
-        }
-        .vehicle-show .card-body {
-          font-size: 1rem;
-        }
-        .vehicle-show .vehicle-icon {
-          font-size: 3rem;
-          color: #007bff;
-          margin-bottom: 20px;
-        }
-        .vehicle-show #map {
-          height: 300px; /* Map height */
-          width: 100%;
-        }
-      </style>
+    <div class="col-sm-12">
+      <h4>Vehicle Details</h4>
 
-      <style>
-        .vehicle-show .nav-link {
-          color: #080b0f;
-        }
-
-        .vehicle-show .nav-tabs .nav-link {
-          border: none;
-          position: relative;
-        }
-
-        .vehicle-show .nav-tabs .nav-link.active {
-          border-bottom: 1px solid #007bff;
-        }
-
-        .vehicle-show .nav-tabs .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 3px;
-          background-color: transparent;
-        }
-
-        .vehicle-show .nav-tabs .nav-link.active::after {
-          background-color: #007bff; /* Blue active line */
-        }
-      </style>
-
-      <div class="vehicle-show">
-        <h4>Vehicle Details</h4>
-
-        <div class="card">
-          <div class="card-header text-center">
-            <div class="vehicle-icon">
-              <i class="fas fa-car"></i> <!-- Car icon -->
-            </div>
-            <h4>Vehicle ID: #12345</h4>
-            <h5>Make: Toyota | Model: Corolla</h5>
+      <div class="card">
+        <div class="card-header text-center">
+          <div class="vehicle-icon">
+            <i class="fas fa-car" style="font-size: 50px;"></i> <!-- Car icon -->
           </div>
+          <h4>Vehicle ID: #12345</h4>
+          <h5>Make: Toyota | Model: Corolla</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link show active" data-toggle="tab" href="#tab_location">Location</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab_basic_details">Basic Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab_additional_info">Additional Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab_trip_history">Trip History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab_tyre_management">Tyre Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab_alert_and_reminder">Alert And Reminder</a>
+            </li>
+
+          </ul>
         </div>
 
-        <div class="row">
-          <div class="col-sm-12">
-
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="location-tab" data-bs-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="true">Location</a>
-              </li>
-
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="basic-details-tab" data-bs-toggle="tab" href="#basic-details" role="tab" aria-controls="basic-details" aria-selected="false">Basic Details</a>
-              </li>
-
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="additional-info-tab" data-bs-toggle="tab" href="#additional-info" role="tab" aria-controls="additional-info" aria-selected="false">Additional Info</a>
-              </li>
-
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="warranties-tab" data-bs-toggle="tab" href="#warranties" role="tab" aria-controls="warranties" aria-selected="false">Warranties</a>
-              </li>
-
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="trip-history-tab" data-bs-toggle="tab" href="#trip-history" role="tab" aria-controls="trip-history" aria-selected="false">Trip History</a>
-              </li>
-
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="measure-history-tab" data-bs-toggle="tab" href="#measure-history" role="tab" aria-controls="measure-history" aria-selected="false">Measure History</a>
-              </li>
-
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="tyre-management-tab" data-bs-toggle="tab" href="#tyre-management" role="tab" aria-controls="tyre-management" aria-selected="false">Tyre Management</a>
-              </li>
-
-            </ul>
-
-            <div class="tab-content mt-4" id="myTabContent">
-
-              <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="basic-details-tab">
-                <!-- Map Section to show Current Vehicle Location -->
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div id="map"></div>
-                  </div>
-                </div>
-                    
+        <div class="card-body">
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active show" id="tab_location">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{ url_for('main.vehicle_show_map_display') }}" style="width: 70%; height: 400px;"></iframe>
               </div>
-
-              <div class="tab-pane fade" id="basic-details" role="tabpanel" aria-labelledby="location-tab">
-                <!-- Vehicle Card -->
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <!-- Left column with details -->
-                      <div class="col-md-6">
-                        <table border="0" cellpadding="10" cellspacing="0">
-                          <tr>
-                            <td><strong>Year of Manufacture</strong></td>
-                            <td>2020</td>
-                          </tr>
-                          <tr>
-                            <td><strong>License Plate</strong></td>
-                            <td>ABC 1234</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Status</strong></td>
-                            <td>Active</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Location</strong></td>
-                            <td>New York</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Last Maintenance</strong></td>
-                            <td>2024-01-15</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Upcoming Maintenance</strong></td>
-                            <td>2025-06-10</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Fuel Type</strong></td>
-                            <td>Petrol</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Fuel Efficiency</strong></td>
-                            <td>15 km/l</td>
-                          </tr>
-                          <tr>
-                            <td><strong>Assigned Driver</strong></td>
-                            <td>John Doe</td>
-                          </tr>
-                        </table>
-
-                      </div>
-                    </div>
-                  </div>
+            </div>
+            <div class="tab-pane fade" id="tab_basic_details">
+              <div class="row">
+                <!-- Left column with details -->
+                <div class="col-md-6">
+                  <table border="0" cellpadding="10" cellspacing="0">
+                    <tr>
+                      <td><strong>Year of Manufacture</strong></td>
+                      <td>2020</td>
+                    </tr>
+                    <tr>
+                      <td><strong>License Plate</strong></td>
+                      <td>ABC 1234</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Status</strong></td>
+                      <td>Active</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Location</strong></td>
+                      <td>New York</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Last Maintenance</strong></td>
+                      <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Upcoming Maintenance</strong></td>
+                      <td>2025-06-10</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fuel Type</strong></td>
+                      <td>Petrol</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fuel Efficiency</strong></td>
+                      <td>15 km/l</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Assigned Driver</strong></td>
+                      <td>John Doe</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
+            </div>
 
-              <div class="tab-pane fade" id="additional-info" role="tabpanel" aria-labelledby="additional-info-tab">
-                <div class="card">
-                  <div class="card-header">
-                    <h5>Additional Information</h5>
-                  </div>
-                  <div class="card-body">
-                    <p><strong>Vehicle History:</strong> This vehicle has been used for daily office commutes and regular maintenance is performed at scheduled intervals.</p>
-                    <p><strong>Service Provider:</strong> ABC Motors, New York</p>
-                  </div>
-                </div>
-              </div>
+            <div class="tab-pane fade" id="tab_additional_info">
+              <p><strong>Vehicle History:</strong> This vehicle has been used for daily office commutes and regular maintenance is performed at scheduled intervals.</p>
+              <p><strong>Service Provider:</strong> ABC Motors, New York</p>
+            </div>
 
-              <div class="tab-pane fade" id="warranties" role="tabpanel" aria-labelledby="basic-details-tab">
-                
-              </div>
+            <div class="tab-pane fade" id="tab_trip_history">
+              tab_trip_history
+            </div>
 
-              <div class="tab-pane fade" id="trip-history" role="tabpanel" aria-labelledby="basic-details-tab">
-                
-              </div>
+            <div class="tab-pane fade" id="tab_tyre_management">
+              tab_tyre_management
+            </div>
 
-              <div class="tab-pane fade" id="measure-history" role="tabpanel" aria-labelledby="basic-details-tab">
-                
-              </div>
-
-              <div class="tab-pane fade" id="tyre-management" role="tabpanel" aria-labelledby="basic-details-tab">
-
-              </div>
+            <div class="tab-pane fade" id="tab_alert_and_reminder">
+              tab_alert_and_reminder
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Leaflet.js Script -->
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-      <script>
-        // Create a map centered around a default location (New York in this case)
-        var map = L.map('map').setView([40.7128, -74.0060], 13); // New York Coordinates
-
-        // Add OpenStreetMap tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Marker for vehicle's current location (New York in this case)
-        L.marker([40.7128, -74.0060]).addTo(map)
-          .bindPopup('<b>Vehicle ID: #12345</b><br>Location: New York')
-          .openPopup();
-        
-        // You can replace the coordinates with the actual current location of the vehicle
-      </script>
     </div>
   </div>
 {% endblock %}

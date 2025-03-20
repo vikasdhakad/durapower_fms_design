@@ -2,62 +2,92 @@
 {% block content %}
   <div class="metric-row">
     <div class="col-lg-2">
-      <a href="javascript:void(0)" class="metric metric-bordered bg-white">
-        <b>Total Vechicle</b>
-        <p class="metric-value h3 mt-2">
-          <sub><i class="fas fa-car"></i></sub> <span class="value">956</span>
-        </p>
-        <b class="mt-3">EV: 400 | ICE: 45</b>
-      </a>
-    </div>
-
-    <div class="col-lg-2">
-      <a href="javascript:void(0)" class="metric metric-bordered bg-white">
-        <div class="metric-badge">
-          <span class="badge badge-lg badge-danger"><span class="oi oi-media-record pulse mr-1"></span> Alerts</span>
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Total Vechicle</b>
+            <p class="metric-value h3 mt-2">
+              <sub><i class="fas fa-car font-size-25"></i></sub> <span class="value">956</span>
+            </p>
+            <b class="mt-3">EV: 400 | ICE: 45</b>
+            <p class="text-success font-weight-bold"><i class="fa fa-arrow-up" aria-hidden="true"></i> 3 vs last month</p>
+          </a>
         </div>
-        <p class="metric-value h3">
-          <sub><i class="fas fa-triangle-exclamation"></i></sub> <span class="value">23</span>
-        </p>
-      </a>
+      </div>
     </div>
 
     <div class="col-lg-2">
-      <a href="javascript:void(0)" class="metric metric-bordered bg-white">
-        <div class="metric-badge">
-          <span class="badge badge-lg badge-warning"><span class="oi oi-media-record pulse mr-1"></span> Reminders</span>
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <div class="metric-badge">
+              <span class="badge badge-lg badge-danger"><span class="oi oi-media-record pulse mr-1"></span> Alerts</span>
+            </div>
+            <p class="metric-value h3 mt-3">
+              <sub><i class="fas fa-triangle-exclamation font-size-25"></i></sub> <span class="value">23</span>
+            </p>
+            <p class="font-weight-bold" style="margin-top: 24px; color: #e30101;"><i class="fa fa-arrow-down" aria-hidden="true"></i> 5 vs last month</p>
+          </a>
         </div>
-        <p class="metric-value h3">
-          <sub><i class="fas fa-bell"></i></sub> <span class="value">48</span>
-        </p>
-      </a>
+      </div>
     </div>
 
     <div class="col-lg-2">
-      <a href="javascript:void(0)" class="metric metric-bordered bg-white">
-        <b>Service</b>
-        <p class="metric-value h3">
-          <sub><i class="fas fa-wrench"></i></sub> <span class="value">77</span>
-        </p>
-      </a>
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <div class="metric-badge">
+              <span class="badge badge-lg badge-warning"><span class="oi oi-media-record pulse mr-1"></span> Reminders</span>
+            </div>
+            <p class="metric-value h3 mt-3">
+              <sub><i class="fas fa-bell font-size-25"></i></sub> <span class="value">48</span>
+            </p>
+            <p class="font-weight-bold" style="margin-top: 24px; color: #e30101;"><i class="fa fa-arrow-down" aria-hidden="true"></i> 6 vs last month</p>
+          </a>
+        </div>
+      </div>
     </div>
 
-     <div class="col-lg-2">
-      <a href="javascript:void(0)" class="metric metric-bordered bg-white">
-        <b>Routes</b>
-        <p class="metric-value h3">
-          <sub><i class="fas fa-route"></i></sub> <span class="value">67</span>
-        </p>
-      </a>
+    <div class="col-lg-2">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Service</b>
+            <p class="metric-value h3 mt-3">
+              <sub><i class="fas fa-wrench font-size-25"></i></sub> <span class="value">77</span>
+            </p>
+            <p class="text-success font-weight-bold" style="margin-top: 29px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> 9 vs last month</p>
+          </a>
+        </div>
+      </div>
     </div>
 
-     <div class="col-lg-2">
-      <a href="javascript:void(0)" class="metric metric-bordered bg-white">
-        <b>Maintenance cost</b>
-        <p class="metric-value h3">
-          <sub><i class="oi oi-timer"></i></sub> <span class="value">$5,678</span>
-        </p>
-      </a>
+    <div class="col-lg-2">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Routes</b>
+            <p class="metric-value h3 mt-3">
+              <sub><i class="fas fa-route font-size-25"></i></sub> <span class="value">67</span>
+            </p>
+            <p class="text-success font-weight-bold" style="margin-top: 29px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> 11 vs last month</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered no-margin">
+            <b>Maintenance cost</b>
+            <p class="metric-value h3 mt-3">
+              <sub><i class="oi oi-timer font-size-25"></i></sub> <span class="value">$5,678</span>
+            </p>
+            <p class="font-weight-bold" style="margin-top: 29px; color: #e30101;"><i class="fa fa-arrow-down" aria-hidden="true"></i> $1,200 vs last month</p>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -65,12 +95,12 @@
     <div class="col-xl-4">
       <div class="card card-fluid">
         <div class="card-body">
-          <h3 class="card-title">Vehicle Condition: <span class="text-primary float-right">632</span></h3>
+          <h3 class="card-title">Total Vechicle </h3>
           <div class="text-center pt-3">
             <div class="chart-inline-group" style="height:214px">
               <div class="easypiechart" data-toggle="easypiechart" data-percent="60" data-size="214" data-bar-color="#00a28a" data-track-color="true" data-scale-color="false" data-rotate="225"></div>
               <div class="easypiechart" data-toggle="easypiechart" data-percent="50" data-size="174" data-bar-color="#f7c46c" data-track-color="true" data-scale-color="false" data-rotate="225"></div>
-              <div class="easypiechart" data-toggle="easypiechart" data-percent="75" data-size="134" data-bar-color="#ea6759" data-track-color="true" data-scale-color="false" data-rotate="225"></div>
+              <div class="easypiechart" data-toggle="easypiechart" data-percent="75" data-size="134" data-bar-color="#ea6759" data-track-color="true" data-scale-color="false" data-rotate="225" id="total_vechicle_easypiechart_3"></div>
             </div>
           </div>
         </div>
@@ -98,7 +128,7 @@
             <div class="col-sm-4">
               <div class="text-center pt-3">
                 <div class="chart-inline-group" style="height:214px">
-                  <div class="easypiechart" data-toggle="easypiechart" data-percent="60" data-size="174" data-bar-color="#00a28a" data-track-color="true" data-scale-color="false" data-rotate="225">10% Health Rate</div>
+                  <div class="easypiechart" data-toggle="easypiechart" data-percent="60" data-size="174" data-bar-color="#00a28a" data-track-color="true" data-scale-color="false" data-rotate="225" id="vehicle_condition_easypiechart_1"></div>
                 </div>
               </div>
             </div>
@@ -106,7 +136,7 @@
             <div class="col-sm-4">
               <div class="text-center pt-3">
                 <div class="chart-inline-group" style="height:214px">
-                  <div class="easypiechart" data-toggle="easypiechart" data-percent="50" data-size="174" data-bar-color="#f7c46c" data-track-color="true" data-scale-color="false" data-rotate="225">50% Health Rate</div>
+                  <div class="easypiechart" data-toggle="easypiechart" data-percent="50" data-size="174" data-bar-color="#f7c46c" data-track-color="true" data-scale-color="false" data-rotate="225" id="vehicle_condition_easypiechart_2"></div>
                 </div>
               </div>
             </div>
@@ -114,7 +144,7 @@
             <div class="col-sm-4">
               <div class="text-center pt-3">
                 <div class="chart-inline-group" style="height:214px">
-                  <div class="easypiechart" data-toggle="easypiechart" data-percent="75" data-size="174" data-bar-color="#ea6759" data-track-color="true" data-scale-color="false" data-rotate="225">70% Health Rate</div>
+                  <div class="easypiechart" data-toggle="easypiechart" data-percent="75" data-size="174" data-bar-color="#ea6759" data-track-color="true" data-scale-color="false" data-rotate="225" id="vehicle_condition_easypiechart_3"></div>
                 </div>
               </div>
             </div>
@@ -166,6 +196,115 @@
           <h3 class="card-title mb-4"> CO2 Emission Report </h3>
           <div class="chartjs" style="height: 192px">
             <canvas id="co2_emission_report"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card card-fluid">
+        <div class="card-body">
+          <h3 class="card-title text-center"> EV Usage </h3>
+          <div id="ev_usage_graph_area" class="flot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card card-fluid">
+        <div class="card-body">
+          <h3 class="card-title text-center"> Weekly Idl Cost </h3>
+          <div id="weekly_idl_cost_graph" class="flot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body">
+          <h3 class="card-title mb-4"> Driving Distance </h3>
+          <p class="text-center font-weight-bold">
+            Average Distance Driven<br>
+            1,280 mi
+          </p>
+          <div class="chartjs" style="height: 192px">
+            <canvas id="driving_distance_graph"></canvas>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th> Top Vehicles </th>
+                  <th class="text-right"> Distance </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="align-middle text-truncate">
+                    <a href="{{ url_for('main.vehicle_show') }}">BMW</a>
+                  </td>
+                  <td class="align-middle text-center"> 40 mi </td>
+                </tr>
+
+                <tr>
+                  <td class="align-middle text-truncate">
+                    <a href="{{ url_for('main.vehicle_show') }}">Toyota</a>
+                  </td>
+                  <td class="align-middle text-center"> 220 mi </td>
+                </tr>
+
+                <tr>
+                  <td class="align-middle text-truncate">
+                    <a href="{{ url_for('main.vehicle_show') }}">Audi</a>
+                  </td>
+                  <td class="align-middle text-center"> 670 mi </td>
+                </tr>
+
+                <tr>
+                  <td class="align-middle text-truncate">
+                    <a href="{{ url_for('main.vehicle_show') }}">BMW2</a>
+                  </td>
+                  <td class="align-middle text-center"> 480 mi </td>
+                </tr>
+
+                <tr>
+                  <td class="align-middle text-truncate">
+                    <a href="{{ url_for('main.vehicle_show') }}">Lexius</a>
+                  </td>
+                  <td class="align-middle text-center"> 300 mi </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card card-fluid">
+        <div class="card-body">
+          <h3 class="card-title text-center"> Fuel Usages </h3>
+          <div class="false-For-Bottom-Text">
+            <div class="mypiechart">  
+              <canvas id="fuel_usage_pie_chart" width="300" height="300"></canvas>
+            </div>
+
+            <p class="text-center mt-2 font-weight-bold">Total Fuel Used 33,422.45 gal</p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-footer-item">
+            <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Fuel Used Dividend </div>
+          </div>
+          <div class="card-footer-item">
+            <i class="fa fa-fw fa-circle text-red"></i> <div class="text-muted small"> Fuel Wastage </div>
           </div>
         </div>
       </div>
