@@ -1,0 +1,730 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>Predictive Smart Charging Scheduling</h5><br>
+      </div>
+
+      <div class="card-body">
+        <table id="predictive_smart_charging_scheduling_table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 140px;">
+                Vehicle
+              </th>
+              <th> Current Battery (%) </th>
+              <th> Predicted Battery at Next Stop (%) </th>
+              <th> Recommended Charging Start Time </th>
+              <th> Charging Location </th>
+              <th> Estimated Charging Cost ($) </th>
+              <th> Full Charge Time </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Audi</a>
+              </td>
+              <td>25%</td>
+              <td>10%</td>
+              <td>10:30 PM (Off-Peak)</td>
+              <td>Station A (3 KM)</td>
+              <td>12.5</td>
+              <td>11:30 PM</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1"> Car</a>
+              </td>
+              <td>40%</td>
+              <td>15%</td>
+              <td>2:00 AM (Low Cost)</td>
+              <td>Station B (5 KM)</td>
+              <td>11.3</td>
+              <td>03:15 AM</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">BMW</a>
+              </td>
+              <td>20%</td>
+              <td>17%</td>
+              <td>5:30 AM (Before Route Start)</td>
+              <td>Station C (2 KM)</td>
+              <td>9.8</td>
+              <td>06:30 AM</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Lexus</a>
+              </td>
+              <td>30%</td>
+              <td>22%</td>
+              <td>7:45 AM (Pre-Work)</td>
+              <td>Station D (4 KM)</td>
+              <td>20.1</td>
+              <td>08:50 AM</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Honda</a>
+              </td>
+              <td>50%</td>
+              <td>21%</td>
+              <td>9:14 AM (Pre-Work)</td>
+              <td>Station E (7 KM)</td>
+              <td>10.2</td>
+              <td>11:17 AM</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="card card-fluid">
+      <div class="card-body">
+        <canvas id="predictive_smart_charging_scheduling_chart" style="width:100%;max-width:600px"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-6">
+    <div class="card card-fluid">
+      <div class="card-body">
+        <canvas id="battery_levels_before_and_after_ai_scheduled_charging_chart" style="width:100%;max-width:600px"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-8">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>AI-Powered Charging Forecast</h5><br>
+      </div>
+
+      <div class="card-body">
+        <table id="ai_powered_charging_forecast_table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th> Total Fleet Battery (%) </th>
+              <th> Predicted Fleet Energy Demand (kWh)</th>
+              <th> Suggested Pre-Charge Time </th>
+              <th> Grid Electricity Rate ($/kWh)</th>
+              <th> Recommended Charging Window </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>20/03/2025</td>
+              <td>60%</td>
+              <td>480 kWh</td>
+              <td>11:00 PM (Low Demand)</td>
+              <td>0.12</td>
+              <td>11:00 PM - 4:00 AM</td>
+            </tr>
+
+            <tr>
+              <td>21/03/2025</td>
+              <td>50%</td>
+              <td>550 kWh</td>
+              <td>2:00 AM (Night Saver)</td>
+              <td>0.1</td>
+              <td>2:00 AM - 6:00 AM</td>
+            </tr>
+
+            <tr>
+              <td>22/03/2025</td>
+              <td>40%</td>
+              <td>600 kWh</td>
+              <td>5:30 AM (Pre-Trip)</td>
+              <td>0.15</td>
+              <td>5:30 AM - 7:30 AM</td>
+            </tr>
+
+            <tr>
+              <td>23/03/2025</td>
+              <td>50%</td>
+              <td>510 kWh</td>
+              <td>12:30 AM (Balanced)</td>
+              <td>0.11</td>
+              <td>12:30 AM - 3:30 AM</td>
+            </tr>
+
+            <tr>
+              <td>24/03/2025</td>
+              <td>36%</td>
+              <td>420 kWh</td>
+              <td>12:00 PM (Night Saver)</td>
+              <td>0.31</td>
+              <td>3:40 AM - 5:55 AM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>AI-Powered Charging Forecast Graph</h5>
+      </div>
+      <div class="card-body">
+        <div id="ai_powered_charging_forecast_graph_area" class="flot" style="height: 440px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>Driver Behavior Monitoring (Enhanced Safety Measures)</h5><br>
+      </div>
+
+      <div class="card-body">
+        <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 140px;">
+                Vehicle
+              </th>
+              <th>Driver </th>
+              <th>Harsh Braking </th>
+              <th>Rapid Acceleration </th>
+              <th>Over Speeding </th>
+              <th>Idle Time (min) </th>
+              <th>Driver Score (0-100) </th>
+              <th>Risk Level </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Car</a>
+              </td>
+              <td>Driver 1</td>
+              <td>5</td>
+              <td>3</td>
+              <td>6</td>
+              <td>10</td>
+              <td>92</td>
+              <td><span class="badge badge-warning" style="font-size: 15px;">Medium</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Audi</a>
+              </td>
+              <td>Driver 2</td>
+              <td>12</td>
+              <td>5</td>
+              <td>8</td>
+              <td>2</td>
+              <td>70</td>
+              <td><span class="badge badge-success" style="font-size: 15px;">Low</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">BMW</a>
+              </td>
+              <td>Driver 3</td>
+              <td>9</td>
+              <td>10</td>
+              <td>19</td>
+              <td>23</td>
+              <td>85</td>
+              <td><span class="badge badge-danger" style="font-size: 15px;">High</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Honda</a>
+              </td>
+              <td>Driver 4</td>
+              <td>7</td>
+              <td>2</td>
+              <td>12</td>
+              <td>8</td>
+              <td>90</td>
+              <td><span class="badge badge-success" style="font-size: 15px;">Low</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Lexaus</a>
+              </td>
+              <td>Driver 5</td>
+              <td>11</td>
+              <td>9</td>
+              <td>3</td>
+              <td>7</td>
+              <td>77</td>
+              <td><span class="badge badge-warning" style="font-size: 15px;">Medium</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>AI-Driven Forecasting Overview</h5><br>
+      </div>
+
+      <div class="card-body mb-3">
+        <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th> Time Frame </th>
+              <th> Predicted Demand (Vehicles) </th>
+              <th> Area </th>
+              <th> Vehicle Type </th>
+              <th> Confidence Score </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>12:00 AM</td>
+              <td>6</td>
+              <td>Downtown</td>
+              <td>Truck</td>
+              <td>90%</td>
+            </tr>
+            <tr>
+              <td>1:00 AM</td>
+              <td>10</td>
+              <td>Suburban</td>
+              <td>Van</td>
+              <td>85%</td>
+            </tr>
+            <tr>
+              <td>2:00 AM</td>
+              <td>9</td>
+              <td>Suburban</td>
+              <td>Truck</td>
+              <td>82%</td>
+            </tr>
+            <tr>
+              <td>1:30 PM</td>
+              <td>8</td>
+              <td>Downtown</td>
+              <td>Van</td>
+              <td>92%</td>
+            </tr>
+            <tr>
+              <td>4:26 PM</td>
+              <td>12</td>
+              <td>Lebar</td>
+              <td>Sedan</td>
+              <td>87%</td>
+            </tr>
+
+            <tr>
+              <td>6:27 PM</td>
+              <td>9</td>
+              <td>CTengah</td>
+              <td>Toyota</td>
+              <td>92%</td>
+            </tr>
+            <tr>
+              <td>6:45 PM</td>
+              <td>8</td>
+              <td>Tampines</td>
+              <td>BMW</td>
+              <td>91%</td>
+            </tr>
+            <tr>
+              <td>7:20 PM</td>
+              <td>4</td>
+              <td>Yishun</td>
+              <td>Truck</td>
+              <td>77%</td>
+            </tr>
+            <tr>
+              <td>8:5 PM</td>
+              <td>7</td>
+              <td>Jurong</td>
+              <td>Car</td>
+              <td>79%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card card-fluid">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Predicted Vehicle Demand Over Next 6 Hours</h3>
+        <div class="chartjs" style="height: 192px">
+          <canvas id="predicted_vehicle_demand_over_next_six_hours_graph"></canvas>
+        </div>
+
+        <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th> Time </th>
+              <th> Vehicle Need </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>12 PM</td>
+              <td>Vehicle A, Vehicle B, Vehicle C, Vehicle D, Vehicle E</td>
+            </tr>
+            <tr>
+              <td>1 PM</td>
+              <td>Vehicle B, Vehicle E, Vehicle G, Vehicle H, Vehicle I, Vehicle W</td>
+            </tr>
+            <tr>
+              <td>2 PM</td>
+              <td>Vehicle D, Vehicle L, Vehicle J, Vehicle p, Vehicle Y</td>
+            </tr>
+            <tr>
+              <td>3 PM</td>
+              <td>Vehicle Z, Vehicle C, Vehicle A, Vehicle M, Vehicle O</td>
+            </tr>
+            <tr>
+              <td>4 PM</td>
+              <td>Vehicle X, Vehicle R, Vehicle Q, Vehicle P, Vehicle O, Vehicle U</td>
+            </tr>
+            <tr>
+              <td>5 PM</td>
+              <td>Vehicle A, Vehicle C, Vehicle K, Vehicle L, Vehicle N</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>Fleet Downtime Insurance Automation (Smart Claims Processing)</h5><br>
+      </div>
+
+      <div class="card-body">
+        <table id="fleet_downtime_insurance_automation" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 140px;">
+                Vehicle
+              </th>
+              <th> Failure Type </th>
+              <th> Breakdown Time </th>
+              <th> Repair Cost Estimate ($) </th>
+              <th> Downtime (hours) </th>
+              <th> Claim ID </th>
+              <th> Claim Status </th>
+              <th> Claim Approval Time </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Audi</a>
+              </td>
+              <td>Engine Failure</td>
+              <td>20/03/2025 10:30 PM</td>
+              <td>943</td>
+              <td>2</td>
+              <td>CLAIM-653</td>
+              <td><span class="badge badge-warning" style="font-size: 13px;">Pending</span></td>
+              <td>-</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">TATA</a>
+              </td>
+              <td>Battery Issue</td>
+              <td>20/03/2025 11:30 </td>
+              <td>453</td>
+              <td>1</td>
+              <td>CLAIM-983</td>
+              <td><span class="badge badge-warning" style="font-size: 13px;">Pending</span></td>
+              <td>-</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Lexaus</a>
+              </td>
+              <td>Transmission Fail</td>
+              <td>21/03/2025 09:30 </td>
+              <td>821</td>
+              <td>1</td>
+              <td>CLAIM-764</td>
+              <td><span class="badge badge-danger" style="font-size: 13px;">Denied</span></td>
+              <td>-</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Honda</a>
+              </td>
+              <td>Break Fail</td>
+              <td>20/03/2025 12:30 </td>
+              <td>689</td>
+              <td>4</td>
+              <td>CLAIM-231</td>
+              <td><span class="badge badge-success" style="font-size: 13px;">Approved</span></td>
+              <td>20/03/2025 1:00 PM</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Toyota</a>
+              </td>
+              <td>Tyre Fail</td>
+              <td>20/03/2025 08:30 </td>
+              <td>567</td>
+              <td>3</td>
+              <td>CLAIM-978</td>
+              <td><span class="badge badge-success" style="font-size: 13px;">Approved</span></td>
+              <td>20/03/2025 3:00 PM</td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">BMW</a>
+              </td>
+              <td>Steering Fail</td>
+              <td>22/03/2025 07:30 </td>
+              <td>800</td>
+              <td>5</td>
+              <td>CLAIM-543</td>
+              <td><span class="badge badge-danger" style="font-size: 13px;">Denied</span></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card card-fluid" style="height: 618px;">
+      <div class="card-header" style="height: 60px;">
+        <h5>Smart Claims Graph</h5><br>
+      </div>
+
+      <div class="card-body">
+        <canvas id="fleet_downtime_insurance_automation_pie_chart" class="chartjs"></canvas>
+      </div>
+
+      <div class="card-footer">
+        <div class="card-footer-item">
+          <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Engine Failure </div>
+        </div>
+        <div class="card-footer-item">
+          <i class="fa fa-fw fa-circle text-danger"></i> <div class="text-muted small"> Battery Issue </div>
+        </div>
+        <div class="card-footer-item">
+          <i class="fa fa-fw fa-circle text-warning"></i> <div class="text-muted small"> Steering Fail </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card card-fluid">
+      <div class="card-header" style="height: 60px;">
+        <h5>AI-Driven Predictive Maintenance</h5><br>
+      </div>
+
+      <div class="card-body">
+        <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 140px;">
+                Vehicle
+              </th>
+              <th> Component </th>
+              <th> Health Status </th>
+              <th> Predicted Failure (Days) </th>
+              <th> Last Maintenance </th>
+              <th> Urgency Level </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">BMW</a>
+              </td>
+              <td>Brake Pads</td>
+              <td>40% (Critical)</td>
+              <td>15 Days</td>
+              <td>10/03/2025</td>
+              <td><span class="badge badge-success" style="font-size: 13px;">Low</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Audi</a>
+              </td>
+              <td>Battery Health</td>
+              <td>70% (OK)</td>
+              <td>5 Days</td>
+              <td>05/03/2025</td>
+              <td><span class="badge badge-warning" style="font-size: 13px;">Medium</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Car</a>
+              </td>
+              <td>Engine Oil</td>
+              <td>40% (Critical)</td>
+              <td>2 Days</td>
+              <td>01/03/2025</td>
+              <td><span class="badge badge-danger" style="font-size: 13px;">High</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Lexus</a>
+              </td>
+              <td>Tire Pressure</td>
+              <td>60% (Warning)</td>
+              <td>10 Days</td>
+              <td>07/03/2025</td>
+              <td><span class="badge badge-warning" style="font-size: 13px;">Medium</span></td>
+            </tr>
+
+            <tr>
+              <td class=" col-checker align-middle">
+                <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                  <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                </a>
+                <a href="vehicle_show#id/1">Toyota</a>
+              </td>
+              <td>Engine Oil</td>
+              <td>85% (Good)</td>
+              <td>11 Days</td>
+              <td>11/03/2025</td>
+              <td><span class="badge badge-danger" style="font-size: 13px;">High</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="card card-fluid">
+      <div class="card-header">
+        <h5>Component Health Status</h5>
+      </div>
+      <div class="card-body">
+        <canvas id="component_health_status_bar_graph" style="width:100%;max-width:600px"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-6">
+    <div class="card card-fluid">
+      <div class="card-header">
+        <h5>Predicted Failure Over Time</h5>
+      </div>
+      <div class="card-body">
+        <div id="predicted_failure_over_time_graph" class="flot" style="height: 280px;"></div>
+      </div>
+    </div>
+  </div>
+</div>

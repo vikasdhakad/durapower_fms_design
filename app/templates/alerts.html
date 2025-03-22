@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header">
+          <h4>Alerts</h4><br>
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active show" data-toggle="tab" href="#tab1">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab2">Resolved</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab3">In Progress</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab4">Unresolved</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <div class="input-group input-group-alt">
+              <div class="input-group-prepend">
+                <select id="filterBy" class="custom-select">
+                  <option value='' selected> Filter By </option>
+                  <option value="1"> Date Time </option>
+                  <option value="2"> Alert Type </option>
+                  <option value="3"> Severity </option>
+                  <option value="4"> Description </option>
+                  <option value="5"> Status </option>
+                  <option value="6"> Action Recommended </option>
+                </select>
+              </div>
+
+              <div class="input-group has-clearable">
+                <button id="clear-search" type="button" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
+                </div><input id="table-search" type="text" class="form-control" placeholder="Search">
+              </div>
+            </div>
+          </div>
+
+          <table id="alerts_data_show_table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <div class="thead-dd dropdown">
+                    <span class="custom-control custom-control-nolabel custom-checkbox"><input type="checkbox" class="custom-control-input" id="check-handle"> <label class="custom-control-label" for="check-handle"></label></span>
+                    <div class="thead-btn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="fa fa-caret-down"></span>
+                    </div>
+                    <div class="dropdown-menu">
+                      <div class="dropdown-arrow"></div>
+                      <a class="dropdown-item" href="javascript:void(0);">Bulk Resolved</a>
+                      <a class="dropdown-item" href="javascript:void(0);">Bulk In Progress</a>
+                      <a class="dropdown-item" href="javascript:void(0);">Bulk Unresolved</a>
+                    </div>
+                  </div>
+                  &nbsp;&nbsp;&nbsp;Vehicle
+                </th>
+
+                <th> Date Time </th>
+                <th> Alert Type </th>
+                <th> Severity </th>
+                <th> Description </th>
+                <th> Status </th>
+                <th> Action Recommended </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

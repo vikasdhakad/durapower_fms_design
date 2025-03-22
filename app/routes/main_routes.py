@@ -7,6 +7,10 @@ from app.views.map_display_view import map_display_view
 from app.views.service_view import service_view
 from app.views.vehicle_show_map_view import vehicle_show_map_view
 from app.views.analytics_view import analytics_view
+from app.views.reminders_view import reminders_view
+from app.views.alerts_view import alerts_view
+from app.views.ai_driven_analytics_view import ai_driven_analytics_view
+from app.views.routing_view import routing_view
 
 main = Blueprint('main', __name__)
 
@@ -43,3 +47,18 @@ def service():
 def analytics():
   return analytics_view()
 
+@main.route('/reminders')
+def reminders():
+  return reminders_view()
+
+@main.route('/alerts')
+def alerts():
+  return alerts_view()
+
+@main.route('/ai-driven-analytics')
+def ai_driven_analytics():
+  return ai_driven_analytics_view()
+
+@main.route('/routing')
+def routing():
+  return routing_view()

@@ -3,13 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Durapower FMS -  {% endblock %}</title>
+    <title>
+      {% block title %}
+        {% if request.path == '/' or request.path == '' %}
+          Dashboard - Durapower FMS
+        {% else %}
+          {{ request.path.replace('/', '').replace('-', ' ').title() }} - Durapower FMS
+        {% endif %}
+      {% endblock %}
+    </title>
 
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
 
     <!-- Icons -->
     <link href=" https://cdn.jsdelivr.net/npm/open-iconic@1.1.1/font/css/open-iconic-bootstrap.min.css " rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://uselooper.com/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
 
     <link rel="stylesheet" href="https://uselooper.com/assets/vendor/flatpickr/flatpickr.min.css">
 
@@ -73,12 +83,29 @@
   <script src="https://uselooper.com/assets/javascript/theme.min.js"></script>
   <script src="https://uselooper.com/assets/javascript/pages/jquery.flot.axislabels.min.js"></script>
 
+
+  <!-- Datatatables -->
+  <script src="https://uselooper.com/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="https://uselooper.com/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+  <script src="https://uselooper.com/assets/javascript/pages/dataTables.bootstrap.js"></script>
+
   {% block extra_js %}
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
     {% if request.path == '/' %}
       <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
     {% elif request.path == '/service' %}
       <script src="{{ url_for('static', filename='js/service.js') }}"></script>
+    {% elif request.path == '/alerts' %}
+      <script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+    {% elif request.path == '/reminders' %}
+      <script src="{{ url_for('static', filename='js/reminders.js') }}"></script>
+    {% elif request.path == '/ai-driven-analytics' %}
+      <script src="{{ url_for('static', filename='js/ai_driven_analytics.js') }}"></script>
+    {% elif request.path == '/routing' %}
+      <script src="{{ url_for('static', filename='js/routing.js') }}"></script>
     {% else %}
       <!-- Default or other page scripts can be added here -->
     {% endif %}

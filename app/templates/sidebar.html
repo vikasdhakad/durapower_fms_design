@@ -15,36 +15,40 @@
     <div class="aside-menu overflow-hidden ps">
       <nav id="stacked-menu" class="stacked-menu stacked-menu-has-collapsible">
         <ul class="menu">
-          <li class="menu-item xxxx_has-active">
+          <li class="menu-item {% if request.path == '/' %} has-active {% else %} {% endif %}">
             <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Dashboard</span></a>
           </li>
 
-          <li class="menu-item">
+          <li class="menu-item {% if request.path == '/map' %} has-active {% else %} {% endif %}">
             <a href="{{ url_for('main.map') }}" class="menu-link"><span class="menu-icon fas fa-map"></span> <span class="menu-text">Map</span></a>
           </li>
 
-          <li class="menu-item">
+          <li class="menu-item {% if request.path == '/vehicles' %} has-active {% else %} {% endif %}">
             <a href="{{ url_for('main.vehicles') }}" class="menu-link"><span class="menu-icon fas fa-car"></span> <span class="menu-text">Vehicles</span></a>
           </li>
 
-          <li class="menu-item">
-            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-triangle-exclamation"></span> <span class="menu-text">Alerts</span></a>
+          <li class="menu-item {% if request.path == '/alerts' %} has-active {% else %} {% endif %}">
+            <a href="{{ url_for('main.alerts') }}" class="menu-link"><span class="menu-icon fas fa-triangle-exclamation"></span> <span class="menu-text">Alerts</span></a>
           </li>
 
-          <li class="menu-item">
-            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-bell"></span> <span class="menu-text">Reminders</span></a>
+          <li class="menu-item {% if request.path == '/reminders' %} has-active {% else %} {% endif %}">
+            <a href="{{ url_for('main.reminders') }}" class="menu-link"><span class="menu-icon fas fa-bell"></span> <span class="menu-text">Reminders</span></a>
           </li>
 
-          <li class="menu-item">
+          <li class="menu-item {% if request.path == '/analytics' %} has-active {% else %} {% endif %}">
             <a href="{{ url_for('main.analytics') }}" class="menu-link"><span class="menu-icon fas fa-chart-simple"></span> <span class="menu-text">Analytics</span></a>
           </li>
 
-          <li class="menu-item">
-            <a href="{{ url_for('main.index') }}" class="menu-link"><span class="menu-icon fas fa-route"></span> <span class="menu-text">Routing</span></a>
+          <li class="menu-item {% if request.path == '/routing' %} has-active {% else %} {% endif %}">
+            <a href="{{ url_for('main.routing') }}" class="menu-link"><span class="menu-icon fas fa-route"></span> <span class="menu-text">Routing</span></a>
           </li>
 
-          <li class="menu-item">
+          <li class="menu-item {% if request.path == '/service' %} has-active {% else %} {% endif %}">
             <a href="{{ url_for('main.service') }}" class="menu-link"><span class="menu-icon fas fa-wrench"></span> <span class="menu-text">Service</span></a>
+          </li>
+
+          <li class="menu-item {% if request.path == '/ai-driven-analytics' %} has-active {% else %} {% endif %}">
+            <a href="{{ url_for('main.ai_driven_analytics') }}" class="menu-link"><span class="menu-icon fas fa-area-chart"></span> <span class="menu-text">AI Driven Analytics</span></a>
           </li>
         </ul>
       </nav>

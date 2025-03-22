@@ -198,10 +198,10 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="card card-fluid">
-        <div class="card-body no-padding">
+        <div class="card-body">
           
-          <div class="row">
-            <div class="col-sm-4">
+          <div class="row no-padding">
+            <div class="col-sm-4 no-padding">
               <h6 class="ml-3 mt-4">Maintenance List</h6>
             </div>
             <div class="col-sm-3"></div>
@@ -306,27 +306,6 @@
               <!-- More rows can be added similarly -->
             </tbody>
           </table>
-
-          <script>
-            $(document).ready(function() {
-              // Initialize DataTable
-              var table = $('#maintenanceTable').DataTable({
-                "paging": true,        // Enable pagination
-                "searching": true,     // Enable search functionality
-                "ordering": true,      // Enable sorting
-                "order": [[0, 'asc']], // Default sorting by Vehicle Name
-              });
-
-              // Add event listener for the action filter
-              $('#actionFilter').on('change', function() {
-                table.column(4).search(this.value).draw();
-              });
-            });
-          </script>
-
-
-
-
         </div>
       </div>
     </div>

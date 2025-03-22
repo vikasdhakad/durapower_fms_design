@@ -6,6 +6,21 @@ class ServicePage {
       _this.costPerformancePieChartMake('cost_performance_pie_chart');
 
       _this.handleGrapsTooltips();
+      _this.initTable();
+    });
+  }
+
+  initTable(){
+    var table = $('#maintenanceTable').DataTable({
+      "paging": true,        // Enable pagination
+      "searching": true,     // Enable search functionality
+      "ordering": true,      // Enable sorting
+      "order": [[0, 'asc']], // Default sorting by Vehicle Name
+    });
+
+    // Add event listener for the action filter
+    $('#actionFilter').on('change', function() {
+      table.column(4).search(this.value).draw();
     });
   }
 
