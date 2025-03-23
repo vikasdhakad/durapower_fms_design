@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="metric-row">
+    <div class="col-lg-3">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Average Monthly GPS Distance (mi)</b>
+            <p class="metric-value h3 mt-2">
+              <sub><i class="fas fa-location-dot font-size-25 text-success"></i></sub> <span class="value">13.2 M</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Total GPS Distance (mi)</b>
+            <p class="metric-value h3 mt-2">
+              <sub><i class="fas fa-map font-size-25 text-success"></i></sub> <span class="value">79.1 M</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Average Monthly Time (hrs)</b>
+            <p class="metric-value h3 mt-2">
+              <sub><i class="fas fa-clock font-size-25 text-success"></i></sub> <span class="value">416.7K</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Total Time (hrs)</b>
+            <p class="metric-value h3 mt-2">
+              <sub><i class="fas fa-clock font-size-25 text-success"></i></sub> <span class="value">2.5M</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Devices</b>
+            <p class="metric-value h3 mt-2">
+              <sub><i class="fas fa-car font-size-25 text-success"></i></sub> <span class="value">768</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header" style="height: 60px;">
+          <h5>6-Month Predicted Fuel and Energy Consumption Costs</h5><br>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table dt-responsive nowrap w-100 dataTable table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Avg Monthly GPS Distance (mi)</th>
+                  <th>Total GPS Distance (mi)</th>
+                  <th>Avg Monthly Time (hrs)</th>
+                  <th>Total Time (hrs)</th>
+                  <th>Devices (Vehicles)</th>
+                  <th>Predicted Fuel Consumption (per vehicle)</th>
+                  <th>Total Fuel Consumption</th>
+                  <th>Fuel Cost (per vehicle)</th>
+                  <th>Total Fuel Cost</th>
+                  <th>Predicted Energy Consumption (per vehicle)</th>
+                  <th>Total Energy Consumption</th>
+                  <th>Energy Cost (per vehicle)</th>
+                  <th>Total Energy Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>April 2025</td>
+                  <td>14.0 M</td>
+                  <td>84.0 M</td>
+                  <td>440K</td>
+                  <td>2.68M</td>
+                  <td>768</td>
+                  <td>1.40M gallons</td>
+                  <td>1.075B gallons</td>
+                  <td>$4.90M</td>
+                  <td>$3.77B</td>
+                  <td>22,000 kWh</td>
+                  <td>16,896,000 kWh</td>
+                  <td>$2,640.00</td>
+                  <td>$2,062,080.00</td>
+                </tr>
+                <tr>
+                  <td>March 2025</td>
+                  <td>13.3 M</td>
+                  <td>79.8 M</td>
+                  <td>425K</td>
+                  <td>2.55M</td>
+                  <td>768</td>
+                  <td>1.33M gallons</td>
+                  <td>1.020B gallons</td>
+                  <td>$4.65M</td>
+                  <td>$3.57B</td>
+                  <td>20,500 kWh</td>
+                  <td>15,744,000 kWh</td>
+                  <td>$2,460.00</td>
+                  <td>$1,944,960.00</td>
+                </tr>
+                <tr>
+                  <td>February 2025</td>
+                  <td>12.8 M</td>
+                  <td>77.0 M</td>
+                  <td>410K</td>
+                  <td>2.48M</td>
+                  <td>768</td>
+                  <td>1.28M gallons</td>
+                  <td>985.6M gallons</td>
+                  <td>$4.48M</td>
+                  <td>$3.44B</td>
+                  <td>19,500 kWh</td>
+                  <td>14,976,000 kWh</td>
+                  <td>$2,340.00</td>
+                  <td>$1,796,160.00</td>
+                </tr>
+                <tr>
+                  <td>January 2025</td>
+                  <td>13.5 M</td>
+                  <td>81.0 M</td>
+                  <td>430K</td>
+                  <td>2.6M</td>
+                  <td>768</td>
+                  <td>1.35M gallons</td>
+                  <td>1.035B gallons</td>
+                  <td>$4.73M</td>
+                  <td>$3.64B</td>
+                  <td>21,000 kWh</td>
+                  <td>16,128,000 kWh</td>
+                  <td>$2,520.00</td>
+                  <td>$1,929,600.00</td>
+                </tr>
+                <tr>
+                  <td>December 2024</td>
+                  <td>13.0 M</td>
+                  <td>78.0 M</td>
+                  <td>420K</td>
+                  <td>2.5M</td>
+                  <td>768</td>
+                  <td>1.30M gallons</td>
+                  <td>1.004B gallons</td>
+                  <td>$4.55M</td>
+                  <td>$3.51B</td>
+                  <td>20,000 kWh</td>
+                  <td>15,360,000 kWh</td>
+                  <td>$2,400.00</td>
+                  <td>$1,843,200.00</td>
+                </tr>
+                <tr>
+                  <td>November 2024</td>
+                  <td>12.5 M</td>
+                  <td>75.0 M</td>
+                  <td>400K</td>
+                  <td>2.4M</td>
+                  <td>768</td>
+                  <td>1.25M gallons</td>
+                  <td>960M gallons</td>
+                  <td>$4.38M</td>
+                  <td>$3.36B</td>
+                  <td>19,000 kWh</td>
+                  <td>14,592,000 kWh</td>
+                  <td>$2,280.00</td>
+                  <td>$1,744,320.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+          

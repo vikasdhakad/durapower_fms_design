@@ -11,6 +11,8 @@ from app.views.reminders_view import reminders_view
 from app.views.alerts_view import alerts_view
 from app.views.ai_driven_analytics_view import ai_driven_analytics_view
 from app.views.routing_view import routing_view
+from app.views.reports_view import reports_view
+from app.views.fuel_and_energy_view import fuel_and_energy_view
 
 main = Blueprint('main', __name__)
 
@@ -62,3 +64,11 @@ def ai_driven_analytics():
 @main.route('/routing')
 def routing():
   return routing_view()
+
+@main.route('/reports')
+def reports():
+  return reports_view()
+
+@main.route('/fuel-and-energy')
+def fuel_and_energy():
+  return fuel_and_energy_view()

@@ -10,7 +10,7 @@ class AiDrivenAnalyticsPage {
       _this.aiPoweredChargingForecastGraphArea('ai_powered_charging_forecast_graph_area');
 
       _this.predictedVehicleDemandOverNextSixHoursGraph('predicted_vehicle_demand_over_next_six_hours_graph');
-      _this.fleetDowntimeInsuranceAutomationPieChartDisplay(_this);
+      _this.fleetDowntimeInsuranceAutomationPieChartDisplay('fleet_downtime_insurance_automation_pie_chart');
 
       _this.componentHealthStatusBarGraph('component_health_status_bar_graph');
       _this.predictedFailureOverTimeGraphMake("predicted_failure_over_time_graph");
@@ -250,52 +250,36 @@ class AiDrivenAnalyticsPage {
     });
   }
 
-  fleetDowntimeInsuranceAutomationPieChartDisplay(_this) {
-    var text1 = 32.17;
-    var text2 = 28.30;
-    var text3 = 39.53;
-    var data = {
-      type: 'pie',
-      data: {
-        datasets: [{
-          data: [text1, text2, text3],
-          backgroundColor: ["#00a28a", "#b76ba3", "#f7c46c"],
-        }],
-        labels: ['Engine Failure', 'Battery Issue', 'Steering Fail']
-      },
-      options: {
-        responsive: true,
-        legend: {
-          display: false
-        },
-        title: {
-          display: true,
-          text: 'Breakdown Type Distribution'
-        }
+  fleetDowntimeInsuranceAutomationPieChartDisplay(id){
+    var obj = {
+      values: [32.17, 28.30, 39.53],
+      colors: ["#00a28a", "#b76ba3", "#f7c46c"],
+      animation: true, // Takes boolean value & default behavious is false
+      animationSpeed: 0, // Time in miliisecond & default animation speed is 20ms
+      fillTextData: true, // Takes boolean value & text is not generate by default 
+      fillTextColor: '#fff', // For Text colour & default colour is #fff (White)
+      fillTextAlign: 1.30, // for alignment of inner text position i.e. higher values gives closer view to center & default text alignment is 1.85 i.e closer to center
+      fillTextPosition: 'inner', // 'horizontal' or 'vertical' or 'inner' & default text position is 'horizontal' position i.e. outside the canvas
+      doughnutHoleSize: 0, // Percentage of doughnut size within the canvas & default doughnut size is null
+      doughnutHoleColor: Looper.skin === 'dark' ? Looper.getColors('gray')[200] : '#fff', // For doughnut colour & default colour is #fff (White)
+      offset: 1, // Offeset between two segments & default value is null
+      pie: 'normal', // if the pie graph is single stroke then we will add the object key as "stroke" & default is normal as simple as pie graph
+      isStrokePie: { 
+        stroke: 20, // Define the stroke of pie graph. It takes number value & default value is 20
+        overlayStroke: true, // Define the background stroke within pie graph. It takes boolean value & default value is false
+        overlayStrokeColor: '#eee', // Define the background stroke colour within pie graph & default value is #eee (Grey)
+        strokeStartEndPoints: 'Yes', // Define the start and end point of pie graph & default value is No
+        strokeAnimation: true, // Used for animation. It takes boolean value & default value is true
+        strokeAnimationSpeed: 3, // Used for animation speed in miliisecond. It takes number & default value is 20ms
+        fontSize: '60px', // Used to define text font size & default value is 60px
+        textAlignement: 'center', // Used for position of text within the pie graph & default value is 'center'
+        fontFamily: 'Arial', // Define the text font family & the default value is 'Arial'
+        fontWeight: 'bold' //  Define the font weight of the text & the default value is 'bold'
       }
     };
 
-    var id = 'fleet_downtime_insurance_automation_pie_chart';
-    var canvas = $(`#${id}`)[0].getContext('2d');
-    var chart = new Chart(canvas, data);
-
-    fleet_downtime_insurance_automation_pie_chart
-
-    // setTimeout(function() {
-    //   _this.addfleetDowntimeInsuranceAutomationPieChart(id, text1, text2, text3)
-    // }, 1500); // 2000 milliseconds (2 seconds) delay
+    generatePieGraph(id, obj);
   }
-
-
-  // addfleetDowntimeInsuranceAutomationPieChart(id, text1, text2, text3){
-  //   var canvas = $(`#${id}`)[0];
-  //   var ctx = canvas.getContext("2d");
-  //   ctx.fillStyle = '#333333';
-  //   ctx.font = "20px Arial";
-
-  //   //ctx.rotate(299.22);  // Rotate by the angle
-  //   ctx.fillText(`${text1}%`, 50, 150);
-  // }
 
   componentHealthStatusBarGraph(id){
     var data = {
@@ -395,7 +379,6 @@ class AiDrivenAnalyticsPage {
     options = $.extend(true, {}, Looper.flotDefaultOptions(), options);
     $(`#${id}`).plot(dataset, options);
   }
-
 }
 
 const aiDrivenAnalyticsPage = new AiDrivenAnalyticsPage();

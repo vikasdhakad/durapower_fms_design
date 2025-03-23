@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header" style="height: 60px">
+          <h6 class="text-center mb-4">Reports Dashboard</h6>
+        </div>
+        <div class="card-body">
+          <div class="col-4">
+            <div class="form-group">
+              <label class="font-weight-bold">Select Your Date Range</label>
+              <input id="flatpickr07" type="text" class="form-control flatpickr-input active" data-toggle="flatpickr" data-mode="range" data-date-format="Y-m-d" data-default-dates="[&quot;2019-03-03&quot;, &quot;2019-03-20&quot;]" readonly="readonly">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Expense Summary</h5>
+                  <p class="card-text">View a summary of expenses.</p>
+
+                  <button class="btn btn-success btn-sm"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                  <button class="btn btn-info btn-sm"><i class="fas fa-file-image"></i> Download  CSV</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Expenses by Vehicles</h5>
+                  <p class="card-text">Detailed expenses per vehicle.</p>
+                  <!-- Download Buttons -->
+                  <button class="btn btn-success btn-sm"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                  <button class="btn btn-info btn-sm"><i class="fas fa-file-image"></i> Download  CSV</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Fuel Summary</h5>
+                  <p class="card-text">View fuel consumption summary.</p>
+                  <!-- Download Buttons -->
+                  <button class="btn btn-success btn-sm"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                  <button class="btn btn-info btn-sm"><i class="fas fa-file-image"></i> Download  CSV</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Faults Summary</h5>
+                  <p class="card-text">View summary of vehicle faults.</p>
+
+                  <button class="btn btn-success btn-sm"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                  <button class="btn btn-info btn-sm"><i class="fas fa-file-image"></i> Download  CSV</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

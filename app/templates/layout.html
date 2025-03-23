@@ -106,6 +106,12 @@
       <script src="{{ url_for('static', filename='js/ai_driven_analytics.js') }}"></script>
     {% elif request.path == '/routing' %}
       <script src="{{ url_for('static', filename='js/routing.js') }}"></script>
+    {% elif request.path == '/fuel-and-energy' %}
+      <script src="{{ url_for('static', filename='js/fuel_and_energy.js') }}"></script>
+    {% elif request.path == '/analytics' %}
+      <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+    {% elif request.path == '/vehicle_show' %}
+      <script src="{{ url_for('static', filename='js/vehicle_show.js') }}"></script>
     {% else %}
       <!-- Default or other page scripts can be added here -->
     {% endif %}

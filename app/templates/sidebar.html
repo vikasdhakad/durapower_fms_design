@@ -50,6 +50,18 @@
           <li class="menu-item {% if request.path == '/ai-driven-analytics' %} has-active {% else %} {% endif %}">
             <a href="{{ url_for('main.ai_driven_analytics') }}" class="menu-link"><span class="menu-icon fas fa-area-chart"></span> <span class="menu-text">AI Driven Analytics</span></a>
           </li>
+
+          <li class="menu-item {% if request.path == '/fuel-and-energy' %} has-active {% else %} {% endif %}">
+            <a href="{{ url_for('main.fuel_and_energy') }}" class="menu-link"><span class="menu-icon fas fa-plug"></span> <span class="menu-text">Fuel And Energy</span></a>
+          </li>
+
+          <li class="menu-item {% if request.path == '/reports' %} has-active {% else %} {% endif %}">
+            <a href="{{ url_for('main.reports') }}" class="menu-link"><span class="menu-icon fas fa-file"></span> <span class="menu-text">Reports</span></a>
+          </li>
+
+          <li class="menu-item mt-4">
+            <a href="javascript:void(0);" class="btn btn-secondary menu-link mr-3 ml-3"><span class="menu-icon fas fa-plus"></span> <span class="menu-text">Add Third Party API</span></a>
+          </li>
         </ul>
       </nav>
     </div>

@@ -1,4 +1,246 @@
 {% extends "layout.html" %}
 {% block content %}
-  
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header" style="height: 60px;">
+          <h5>Route Optimization</h5><br>
+        </div>
+
+        <div class="card-body">
+          <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 140px;">
+                  Vehicle
+                </th>
+                <th> Original Route </th>
+                <th> Optimized Route </th>
+                <th> Traffic Condition </th>
+                <th> Original Route (Time) </th>
+                <th> Optimized Route (Time) </th>
+                <th> Original Energy (kWh) </th>
+                <th> Optimized Energy (kWh) </th>
+                <th> Energy Saved (%) </th>
+                <th> Time Saved (min) </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Toyota</a>
+                </td>
+                <td>Zone A → Zone B</td>
+                <td>Zone A → Zone C → Zone B</td>
+                <td>Low → Moderate</td>
+                <td>45 min</td>
+                <td>35 min</td>
+                <td>30 kWh</td>
+                <td>25 kWh</td>
+                <td>15%</td>
+                <td>17</td>
+              </tr>
+
+              <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Audi</a>
+                </td>
+                <td>Zone C → Zone D</td>
+                <td>Zone C → Zone E → Zone D</td>
+                <td>High → Moderate</td>
+                <td>50 min</td>
+                <td>45 min</td>
+                <td>35 kWh</td>
+                <td>30 kWh</td>
+                <td>20%</td>
+                <td>8</td>
+              </tr>
+
+              <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">BMW</a>
+                </td>
+                <td>Zone E → Zone F</td>
+                <td>Zone B → Zone F → Zone E</td>
+                <td>Heavy → Light</td>
+                <td>55 min</td>
+                <td>45 min</td>
+                <td>40 kWh</td>
+                <td>35 kWh</td>
+                <td>1215%%</td>
+                <td>15</td>
+              </tr>
+
+              <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Truck</a>
+                </td>
+                <td>Zone A → Zone C</td>
+                <td>Zone B → Zone C → Zone E</td>
+                <td>Moderate → Low</td>
+                <td>60 min</td>
+                <td>50 min</td>
+                <td>45 kWh</td>
+                <td>40 kWh</td>
+                <td>23%</td>
+                <td>10</td>
+              </tr>
+
+              <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Lorrey</a>
+                </td>
+                <td>Zone B → Zone E</td>
+                <td>Zone C → Zone D → Zone F</td>
+                <td>Light → Heavy</td>
+                <td>47 min</td>
+                <td>36 min</td>
+                <td>50 kWh</td>
+                <td>45 kWh</td>
+                <td>9%</td>
+                <td>12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-body">
+          <canvas id="route_optimization_comparison_bar_graph" style="width:100%;max-width:600px"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-body">
+          <canvas id="before_vs_after_route_optimization_energy_consumption_bar_graph" style="width:100%;max-width:600px"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-7">
+      <div class="card card-fluid">
+        <div class="card-header" style="height: 60px;">
+          <h5>AI-Driven Route Predictions</h5><br>
+        </div>
+
+        <div class="card-body">
+          <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 140px;">
+                  Vehicle
+                </th>
+                <th> Predicted Travel Time (min) </th>
+                <th> Predicted Energy Consumption (kWh) </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Car</a>
+                </td>
+                <td>33</td>
+                <td>24</td>
+              </tr>
+
+               <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Audi</a>
+                </td>
+                <td>38</td>
+                <td>29</td>
+              </tr>
+
+               <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Truck</a>
+                </td>
+                <td>48</td>
+                <td>34</td>
+              </tr>
+
+               <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">BMW</a>
+                </td>
+                <td>55</td>
+                <td>46</td>
+              </tr>
+
+               <tr>
+                <td class=" col-checker align-middle">
+                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/1">Lexus</a>
+                </td>
+                <td>72</td>
+                <td>68</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="card card-fluid" style="height: 440px;">
+        <div class="card-header" style="height: 60px;">
+          <h5>Vehicle Assignment to Route (Short vs Long)</h5><br>
+        </div>
+
+        <div class="card-body">
+          <canvas class="mt-5 ml-4" id="vehicle_assignment_to_route_short_vs_long" height="200" width="200" style="margin-left: 130px !important;"></canvas>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-footer-item">
+            <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Short Route </div>
+          </div>
+
+          <div class="card-footer-item">
+            <i class="fa fa-fw fa-circle text-warning"></i> <div class="text-muted small"> Long Route </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

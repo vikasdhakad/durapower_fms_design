@@ -21,6 +21,23 @@
       maxZoom: 19
     }).addTo(map);
 
+    var zoneCoordinates = [
+        [1.396, 103.800], // Point 1
+        [1.396, 103.900], // Point 2
+        [1.300, 103.800], // Point 3
+        [1.300, 103.800], // Point 4
+        [1.284, 103.700]  // Point 5
+    ];
+
+    // Draw the polygon (zone area) on the map
+    var zoneArea = L.polygon(zoneCoordinates, {
+      color: 'blue',       // Border color of the polygon
+      fillColor: 'blue',   // Fill color of the polygon
+      fillOpacity: 0.1     // Transparency of the fill color
+    }).addTo(map);
+
+    // Zone area draw end
+
     // Base64 strings for 12 icons (sample base64, replace with your own)
     var base64Icons = {
       inshop: yellowVehicleIcon,

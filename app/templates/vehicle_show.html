@@ -26,9 +26,6 @@
               <a class="nav-link" data-toggle="tab" href="#tab_basic_details">Basic Details</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tab_additional_info">Additional Info</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tab_trip_history">Trip History</a>
             </li>
             <li class="nav-item">
@@ -51,7 +48,7 @@
             <div class="tab-pane fade" id="tab_basic_details">
               <div class="row">
                 <!-- Left column with details -->
-                <div class="col-md-6">
+                <div class="col-6">
                   <table border="0" cellpadding="10" cellspacing="0">
                     <tr>
                       <td><strong>Year of Manufacture</strong></td>
@@ -79,11 +76,11 @@
                     </tr>
                     <tr>
                       <td><strong>Fuel Type</strong></td>
-                      <td>Petrol</td>
+                      <td>Bettery</td>
                     </tr>
                     <tr>
                       <td><strong>Fuel Efficiency</strong></td>
-                      <td>15 km/l</td>
+                      <td>15 km/kwh</td>
                     </tr>
                     <tr>
                       <td><strong>Assigned Driver</strong></td>
@@ -91,20 +88,297 @@
                     </tr>
                   </table>
                 </div>
+                <div class="col-6">
+                  <div class="card card-fluid">
+                    <div class="card-heading">
+                      <div class="row mr-2 mt-2">
+                        <div class="col-sm-8">
+                          <div class="d-flex">
+                            <p class="ml-2">
+                              Total Cost<br>
+                              <span class="card-title font-weight-bold">$52,682.81</span>
+                            </p>
+
+                            <p class="ml-6">
+                              Total Cost<br>
+                              <span class="card-title font-weight-bold">$182.92/mi</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4 float-right">
+                          <div class="form-group">
+                            <input id="flatpickr07" type="text" class="form-control active flatpickr-input" data-toggle="flatpickr" data-mode="range" data-date-format="Y-m-d" data-default-dates="[&quot;2019-03-03&quot;, &quot;2019-03-20&quot;]" readonly="readonly">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body no-padding">
+                      <canvas id="cost_of_owenership_bar_chart" style="min-height: 300px;"></canvas>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="tab-pane fade" id="tab_additional_info">
-              <p><strong>Vehicle History:</strong> This vehicle has been used for daily office commutes and regular maintenance is performed at scheduled intervals.</p>
-              <p><strong>Service Provider:</strong> ABC Motors, New York</p>
-            </div>
-
             <div class="tab-pane fade" id="tab_trip_history">
-              tab_trip_history
+              <div class="table-responsive">
+                <table class="table dt-responsive nowrap w-100 dataTable table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Trip ID</th>
+                      <th>Start Time</th>
+                      <th>End Time</th>
+                      <th>Start Location</th>
+                      <th>End Location</th>
+                      <th>Distance (km)</th>
+                      <th>Energy Consumed (kWh)</th>
+                      <th>Battery Start (%)</th>
+                      <th>Battery End (%)</th>
+                      <th>Charging Station (if any)</th>
+                      <th>Driver Name</th>
+                      <th>Trip Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>2025-03-01 08:00</td>
+                      <td>2025-03-01 12:00</td>
+                      <td>City A</td>
+                      <td>City B</td>
+                      <td>120</td>
+                      <td>24</td>
+                      <td>90</td>
+                      <td>75</td>
+                      <td>None</td>
+                      <td>John Doe</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>2025-03-02 09:00</td>
+                      <td>2025-03-02 11:30</td>
+                      <td>City B</td>
+                      <td>City C</td>
+                      <td>90</td>
+                      <td>18</td>
+                      <td>80</td>
+                      <td>70</td>
+                      <td>None</td>
+                      <td>Jane Smith</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>2025-03-03 10:00</td>
+                      <td>2025-03-03 14:30</td>
+                      <td>City C</td>
+                      <td>City D</td>
+                      <td>150</td>
+                      <td>30</td>
+                      <td>95</td>
+                      <td>85</td>
+                      <td>Charging Station A</td>
+                      <td>John Doe</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>2025-03-04 07:00</td>
+                      <td>2025-03-04 10:00</td>
+                      <td>City A</td>
+                      <td>City E</td>
+                      <td>80</td>
+                      <td>16</td>
+                      <td>90</td>
+                      <td>78</td>
+                      <td>None</td>
+                      <td>Jane Smith</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>2025-03-05 13:00</td>
+                      <td>2025-03-05 16:00</td>
+                      <td>City D</td>
+                      <td>City A</td>
+                      <td>110</td>
+                      <td>22</td>
+                      <td>78</td>
+                      <td>62</td>
+                      <td>None</td>
+                      <td>John Doe</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>2025-03-06 06:30</td>
+                      <td>2025-03-06 09:00</td>
+                      <td>City B</td>
+                      <td>City D</td>
+                      <td>100</td>
+                      <td>20</td>
+                      <td>85</td>
+                      <td>70</td>
+                      <td>None</td>
+                      <td>Jane Smith</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>2025-03-07 08:30</td>
+                      <td>2025-03-07 12:00</td>
+                      <td>City E</td>
+                      <td>City C</td>
+                      <td>130</td>
+                      <td>26</td>
+                      <td>95</td>
+                      <td>88</td>
+                      <td>Charging Station B</td>
+                      <td>John Doe</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>2025-03-08 14:30</td>
+                      <td>2025-03-08 18:00</td>
+                      <td>City D</td>
+                      <td>City B</td>
+                      <td>95</td>
+                      <td>19</td>
+                      <td>80</td>
+                      <td>65</td>
+                      <td>None</td>
+                      <td>Jane Smith</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>2025-03-09 07:15</td>
+                      <td>2025-03-09 10:00</td>
+                      <td>City A</td>
+                      <td>City E</td>
+                      <td>85</td>
+                      <td>17</td>
+                      <td>85</td>
+                      <td>73</td>
+                      <td>None</td>
+                      <td>John Doe</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>2025-03-10 11:30</td>
+                      <td>2025-03-10 15:00</td>
+                      <td>City C</td>
+                      <td>City D</td>
+                      <td>120</td>
+                      <td>24</td>
+                      <td>90</td>
+                      <td>80</td>
+                      <td>Charging Station A</td>
+                      <td>Jane Smith</td>
+                      <td>Completed</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <div class="tab-pane fade" id="tab_tyre_management">
-              tab_tyre_management
+              <section id="vechile_design_with_tyre"> 
+                <style>
+                  #vechile_design_with_tyre {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background-color: #f4f4f4;
+                  }
+                  #vechile_design_with_tyre .vehicle {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 50px;
+                  }
+                  #vechile_design_with_tyre .axle {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 250px;
+                    position: relative;
+                  }
+                  #vechile_design_with_tyre .tire {
+                    width: 40px;
+                    height: 40px;
+                    background-color: #ccc;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                    transform: rotateY(20deg);
+                    position: relative;
+                  }
+                  #vechile_design_with_tyre .tire-status {
+                    position: absolute;
+                    top: 50px;
+                    font-size: 10px;
+                    color: #333;
+                    text-align: center;
+                    width: 100%;
+                  }
+                  #vechile_design_with_tyre .center {
+                    width: 10px;
+                    height: 40px;
+                    background-color: black;
+                    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                  }
+                  #vechile_design_with_tyre .label {
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                  }
+                </style>
+
+                <div class="vehicle">
+                  <div class="label">Front</div>
+                  <div class="axle">
+                    <div class="tire">FL1<div class="tire-status">OK</div></div>
+                    <div class="tire">FL0<div class="tire-status">Low</div></div>
+                    <div class="center"></div>
+                    <div class="tire">FR0<div class="tire-status">OK</div></div>
+                    <div class="tire">FR1<div class="tire-status">Worn</div></div>
+                  </div>
+                  <div class="axle">
+                    <div class="tire">1L0<div class="tire-status">OK</div></div>
+                    <div class="center">+</div>
+                    <div class="tire">1R0<div class="tire-status">OK</div></div>
+                  </div>
+                  <div class="axle">
+                    <div class="tire">2L0<div class="tire-status">Low</div></div>
+                    <div class="center">+</div>
+                    <div class="tire">2R0<div class="tire-status">OK</div></div>
+                  </div>
+                  <div class="axle">
+                    <div class="tire">3L0<div class="tire-status">Worn</div></div>
+                    <div class="center">+</div>
+                    <div class="tire">3R0<div class="tire-status">OK</div></div>
+                  </div>
+                  <div class="axle">
+                    <div class="tire">RL1<div class="tire-status">OK</div></div>
+                    <div class="tire">RL0<div class="tire-status">Low</div></div>
+                    <div class="center"></div>
+                    <div class="tire">RR0<div class="tire-status">OK</div></div>
+                    <div class="tire">RR1<div class="tire-status">Worn</div></div>
+                  </div>
+                  <div class="label">Rear</div>
+                </div>
+              </section>
+
             </div>
 
             <div class="tab-pane fade" id="tab_alert_and_reminder">
