@@ -14,7 +14,7 @@ class DashboardPage {
 
       setTimeout(function() {
         _this.manageVehicleConditionEasyPieChart(_this);
-        _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "632")
+        _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "32000")
       }, 1500); // 2000 milliseconds (2 seconds) delay
     });
   }
@@ -26,7 +26,10 @@ class DashboardPage {
     ctx.font = "30px Arial";
 
     ctx.rotate(299.22);  // Rotate by the angle
-    ctx.fillText(text1, -30, 10);
+    ctx.fillText(text1, -40, 5);
+
+    ctx.font = "15px Arial";
+    ctx.fillText("Vehicles", -30, 25);
   }
 
   manageVehicleConditionEasyPieChart(_this){
