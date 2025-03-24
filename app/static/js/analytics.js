@@ -2,7 +2,8 @@ class AnalyticsPage {
   constructor(){
     var _this = this
     $(document).ready(function() {
-      _this.iceVsEvFleetPerformanceBarGraph()    
+      _this.iceVsEvFleetPerformanceBarGraph();
+      _this.fuelAndEnergyWastagePieChartMake('fuel_and_energy_wastage_pie_chart');   
     });
   }
 
@@ -47,6 +48,29 @@ class AnalyticsPage {
         }
       }
     });
+  }
+
+  fuelAndEnergyWastagePieChartMake(id){
+    var obj5 = {
+      values: [35, 22, 77, 56],
+      colors: ['#00a28a', '#346cb0', '#f7c46c', '#b76ba3'],
+      animation: false,
+      doughnutHoleSize: 0,
+      doughnutHoleColor: '#fff',
+      offset: 0,
+
+      // print text on circle start
+      animation: true,
+      animationSpeed: 0,
+      fillTextData: true,
+      fillTextColor: '#fff',
+      fillTextAlign: 1.30,
+      fillTextPosition: 'inner',
+      // print text on circle end
+
+      doughnutHoleColor: Looper.skin === 'dark' ? Looper.getColors('gray')[200] : '#fff'
+    };
+    generatePieGraph(id, obj5);
   }
 }
 

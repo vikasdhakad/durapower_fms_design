@@ -8,7 +8,10 @@ class DashboardPage {
       _this.weeklyIdlCostLineGraphMake('weekly_idl_cost_graph');
       _this.fuelUsagePieChartMake('fuel_usage_pie_chart');
 
+      _this.top5AggressiveDriversChart();
       _this.handleGrapsTooltips();
+      _this.driverSafetyScorecardPieChartMake('driver_safety_scorecard');
+
       setTimeout(function() {
         _this.manageVehicleConditionEasyPieChart(_this);
         _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "632")
@@ -47,24 +50,24 @@ class DashboardPage {
 
   proecessToDisplayBarGraph(_this){
     var last_3_months_fuel_trends = {
-      labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+      labels: ['Dec 2024', 'Jan 2025', 'Feb 2025'],
       datasets: [{
         backgroundColor: Looper.getColors('brand').indigo,
         borderColor: Looper.getColors('brand').indigo,
-        data: [345, 120, 155, 65, 465]
+        data: [190, 320, 480]
       }]
     };
-    _this.makeBarGraph(last_3_months_fuel_trends, 'last_3_months_fuel_trends');
+    _this.makeBarGraph(last_3_months_fuel_trends, 'last_3_months_fuel_trends', 'Month', 'Fuel Burned');
 
     var last_3_months_mileage_trends = {
-      labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+      labels: ['Dec 2024', 'Jan 2025', 'Feb 2025'],
       datasets: [{
         backgroundColor: Looper.getColors('brand').orange,
         borderColor: Looper.getColors('brand').orange,
-        data: [387, 221, 225, 325, 80]
+        data: [160, 340, 470]
       }]
     };
-    _this.makeBarGraph(last_3_months_mileage_trends, 'last_3_months_mileage_trends');
+    _this.makeBarGraph(last_3_months_mileage_trends, 'last_3_months_mileage_trends', 'Month', 'Distance Driven');
 
     var co2_emission_report = {
       labels: ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7'],
@@ -74,7 +77,7 @@ class DashboardPage {
         data: [155, 65, 465, 265, 225, 325, 80]
       }]
     };
-    _this.makeBarGraph(co2_emission_report, 'co2_emission_report');
+    _this.makeBarGraph(co2_emission_report, 'co2_emission_report', '', '');
 
     var driving_distance_graph = {
       labels: ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7'],
@@ -84,10 +87,10 @@ class DashboardPage {
         data: [155, 65, 465, 265, 225, 325, 80]
       }]
     };
-    _this.makeBarGraph(driving_distance_graph, 'driving_distance_graph');
+    _this.makeBarGraph(driving_distance_graph, 'driving_distance_graph', '', '');
   }
 
-  makeBarGraph(data, id) {
+  makeBarGraph(data, id, label_x, label_y) {
     var canvas = $(`#${id}`)[0].getContext('2d');
     var chart = new Chart(canvas, {
       type: 'bar',
@@ -110,6 +113,10 @@ class DashboardPage {
             ticks: {
               maxRotation: 0,
               maxTicksLimit: 3
+            },
+            scaleLabel: {
+              display: true,
+              labelString: label_x // Label for the x-axis
             }
           }],
           yAxes: [{
@@ -120,6 +127,10 @@ class DashboardPage {
             ticks: {
               beginAtZero: true,
               stepSize: 100
+            },
+            scaleLabel: {
+              display: true,
+              labelString: label_y // Label for the y-axis
             }
           }]
         }
@@ -352,6 +363,86 @@ class DashboardPage {
     //   }
     // });
   }
+
+  top5AggressiveDriversChart(){
+    var yValues1 = [16, 28, 23, 24, 33];
+    var yValues2 = [20, 23, 19, 17, 20];
+    var yValues3 = [5, 7, 3, 11, 8];
+
+    // Create a new chart with two datasets
+    new Chart("top_5_aggressive_drivers", {
+      type: "bar",
+      data: {
+        labels: ["Emma W.", "David P.", "Sarah L.", "John D.", "Mike T."],
+
+        datasets: [{
+          label: "Harsh Braking",
+          backgroundColor: "#346cb0",
+          data: yValues1
+        }, {
+          label: "Harsh Cornering",
+          backgroundColor: "#23b5ee",
+          data: yValues2
+        }, {
+          label: "Harsh Acceleration",
+          backgroundColor: "#00a28a",
+          data: yValues3
+        }]
+      },
+      options: {
+        legend: { display: true },
+        title: {
+          display: true,
+          text: ""
+        },
+        scales: {
+          xAxes: [{
+            stacked: true  // Stack the bars
+          }],
+          yAxes: [{
+            stacked: true  // Stack the bars
+          }]
+        }
+      }
+    });
+  }
+
+  driverSafetyScorecardPieChartMake(id){
+    var obj5 = {
+      values: [15, 50, 20, 66],
+      colors: ['#00a28a', '#346cb0', '#f7c46c', '#b76ba3'],
+      animation: false,
+      doughnutHoleSize: 60,
+      doughnutHoleColor: '#fff',
+      offset: 0,
+
+      // print text on circle start
+      animation: true,
+      animationSpeed: 0,
+      fillTextData: true,
+      fillTextColor: '#fff',
+      fillTextAlign: 1.30,
+      fillTextPosition: 'inner',
+      // print text on circle end
+
+      doughnutHoleColor: Looper.skin === 'dark' ? Looper.getColors('gray')[200] : '#fff'
+    };
+    generatePieGraph(id, obj5);
+
+    setTimeout(function() {
+      var canvas = document.getElementById(id);
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = Looper.skin === 'dark' ? '#ffffff' : '#555555';
+      ctx.font = "30px Arial";
+
+      var width = canvas.width / 2.1
+      var height = canvas.height / 2
+      ctx.fillText("75.25", width, height+20);
+      ctx.font = "15px Arial";
+      ctx.fillText("Average Score", width + 5, height - 12);
+    }, 3500);
+  }
+
 }
 
 const dashboardPage = new DashboardPage();

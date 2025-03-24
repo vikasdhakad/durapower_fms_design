@@ -4,7 +4,45 @@
     <div class="col-xl-6">
       <div class="card card-fluid">
         <div class="card-body">
-          <canvas id="ice_vs_ev_fleet_performance" style="width:100%;max-width:600px;"></canvas>
+          <canvas id="ice_vs_ev_fleet_performance" style="width:100%;height:458px;"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          <h6>Fuel And Energy Wastage</h6>
+        </div>
+        <div class="card-body">
+          <center>
+            <canvas id="fuel_and_energy_wastage_pie_chart" width="251" height="251"></canvas>
+          </center>
+        </div>
+
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card-footer-item">
+                <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Heavy Load </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-footer-item">
+                <i class="fa fa-fw fa-circle text-primary"></i> <div class="text-muted small"> Idling </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-footer-item">
+                <i class="fa fa-fw fa-circle text-warning"></i> <div class="text-muted small"> Harsh Acceleration </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-footer-item">
+                <i class="fa fa-fw fa-circle text-danger"></i> <div class="text-muted small"> Inefficient Routing </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -9,3 +9,27 @@
 .font-size-25 {
   font-size: 25px;
 }
+
+.horizontal-rating .rating-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontal-rating .rating-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 1px;
+  position: relative;
+}
+
+.horizontal-rating .rating-fill {
+  height: 100%;
+  background-color: #f7c46c !important;
+  border-radius: 5px;
+}
+
+.horizontal-rating .percentage {
+  font-size: 16px;
+}

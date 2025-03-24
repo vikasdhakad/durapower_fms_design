@@ -1,6 +1,79 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="row">
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered">
+            <b>💼 Service Cost Comparison (Fleet vs. Industry Average)</b>
+            <table class="table mt-3">
+              <tbody>
+                <tr>
+                  <td><b>Your Fleet:</b></td>
+                  <td>$450/month/vehicle</td>
+                </tr>
+
+                <tr>
+                  <td><b>Industry Average:</b></td>
+                  <td>$500/month/vehicle</td>
+                </tr>
+
+                <tr>
+                  <td><b>You Save:</b></td>
+                  <td> $50/month/vehicle</td>
+                </tr>
+              </tbody>
+            </table>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered no-margin">
+            <b>💰 Total Maintenance Cost (This Month)</b>
+            <p class="metric-value h3 text-center mt-2 mb-2">
+              <span class="value">$5,250</span>
+            </p>
+            <p class="border-top mt-3">
+              <span style="color: green; font-size: 20px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> 12% from last month</span><br>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><b>Oil Change</b> 40%</td>
+                    <td><b>Tires</b> 30%</td>
+                  </tr>
+
+                  <tr>
+                    <td><b>Brakes</b> 15%</td>
+                    <td><b>Others</b> 15%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center">
+            <b>💸 Average Service Cost per Vehicle</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">$450</span>
+            </p>
+            <p class="mt-2" style="margin-bottom: 63px;">(Last 30 Days)</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm-3">
       <div class="card card-fluid">
         <div class="card-body no-padding">
@@ -123,6 +196,19 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-fluid">
+        <div class="card-header">
+          <h6>Maintenance Cost Trend (Last 6 Months)</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="maintenance_cost_trend_graph" height="400"></canvas>
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@
               <a class="nav-link show active" data-toggle="tab" href="#tab_location">Location</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tab_basic_details">Basic Details</a>
+              <a class="nav-link" data-toggle="tab" href="#tab_overview">Overview</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tab_trip_history">Trip History</a>
@@ -45,7 +45,7 @@
                 <iframe class="embed-responsive-item" src="{{ url_for('main.vehicle_show_map_display') }}" style="width: 70%; height: 400px;"></iframe>
               </div>
             </div>
-            <div class="tab-pane fade" id="tab_basic_details">
+            <div class="tab-pane fade" id="tab_overview">
               <div class="row">
                 <!-- Left column with details -->
                 <div class="col-6">
@@ -53,6 +53,10 @@
                     <tr>
                       <td><strong>Year of Manufacture</strong></td>
                       <td>2020</td>
+                    </tr>
+                     <tr>
+                      <td><strong>Meter</strong></td>
+                      <td>288 mi</td>
                     </tr>
                     <tr>
                       <td><strong>License Plate</strong></td>
@@ -127,159 +131,77 @@
                   <thead>
                     <tr>
                       <th>Trip ID</th>
-                      <th>Start Time</th>
-                      <th>End Time</th>
-                      <th>Start Location</th>
-                      <th>End Location</th>
-                      <th>Distance (km)</th>
-                      <th>Energy Consumed (kWh)</th>
-                      <th>Battery Start (%)</th>
-                      <th>Battery End (%)</th>
-                      <th>Charging Station (if any)</th>
-                      <th>Driver Name</th>
-                      <th>Trip Status</th>
+                      <th>Start Date & Time</th>
+                      <th>End Date & Time</th>
+                      <th>Duration</th>
+                      <th>Distance Traveled</th>
+                      <th>Fuel Used (Liters)</th>
+                      <th>Energy Used (kWh)</th>
+                      <th>Average Speed (km/h)</th>
+                      <th>Route Taken</th>
+                      <th>Comments</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
-                      <td>2025-03-01 08:00</td>
-                      <td>2025-03-01 12:00</td>
-                      <td>City A</td>
-                      <td>City B</td>
-                      <td>120</td>
-                      <td>24</td>
-                      <td>90</td>
-                      <td>75</td>
-                      <td>None</td>
-                      <td>John Doe</td>
-                      <td>Completed</td>
+                      <td>101</td>
+                      <td>22/03/2025 08:00:00</td>
+                      <td>22/03/2025 10:30:00</td>
+                      <td>2h 30m</td>
+                      <td>120 km</td>
+                      <td>10 L</td>
+                      <td>12 kWh</td>
+                      <td>48 km/h</td>
+                      <td>Route A</td>
+                      <td>Smooth trip</td>
                     </tr>
                     <tr>
-                      <td>2</td>
-                      <td>2025-03-02 09:00</td>
-                      <td>2025-03-02 11:30</td>
-                      <td>City B</td>
-                      <td>City C</td>
-                      <td>90</td>
-                      <td>18</td>
-                      <td>80</td>
-                      <td>70</td>
-                      <td>None</td>
-                      <td>Jane Smith</td>
-                      <td>Completed</td>
+                      <td>102</td>
+                      <td>22/03/2025 09:00:00</td>
+                      <td>22/03/2025 11:00:00</td>
+                      <td>2h</td>
+                      <td>95 km</td>
+                      <td>8 L</td>
+                      <td>10 kWh</td>
+                      <td>47.5 km/h</td>
+                      <td>Route B</td>
+                      <td>No issues</td>
                     </tr>
                     <tr>
-                      <td>3</td>
-                      <td>2025-03-03 10:00</td>
-                      <td>2025-03-03 14:30</td>
-                      <td>City C</td>
-                      <td>City D</td>
-                      <td>150</td>
-                      <td>30</td>
-                      <td>95</td>
-                      <td>85</td>
-                      <td>Charging Station A</td>
-                      <td>John Doe</td>
-                      <td>Completed</td>
+                      <td>103</td>
+                      <td>22/03/2025 10:30:00</td>
+                      <td>22/03/2025 13:00:00</td>
+                      <td>2h 30m</td>
+                      <td>110 km</td>
+                      <td>9 L</td>
+                      <td>11 kWh</td>
+                      <td>44 km/h</td>
+                      <td>Route C</td>
+                      <td>Minor delay</td>
                     </tr>
                     <tr>
-                      <td>4</td>
-                      <td>2025-03-04 07:00</td>
-                      <td>2025-03-04 10:00</td>
-                      <td>City A</td>
-                      <td>City E</td>
-                      <td>80</td>
-                      <td>16</td>
-                      <td>90</td>
-                      <td>78</td>
-                      <td>None</td>
-                      <td>Jane Smith</td>
-                      <td>Completed</td>
+                      <td>104</td>
+                      <td>22/03/2025 12:00:00</td>
+                      <td>22/03/2025 14:15:00</td>
+                      <td>2h 15m</td>
+                      <td>85 km</td>
+                      <td>7 L</td>
+                      <td>8 kWh</td>
+                      <td>38 km/h</td>
+                      <td>Route D</td>
+                      <td>Smooth trip</td>
                     </tr>
                     <tr>
-                      <td>5</td>
-                      <td>2025-03-05 13:00</td>
-                      <td>2025-03-05 16:00</td>
-                      <td>City D</td>
-                      <td>City A</td>
-                      <td>110</td>
-                      <td>22</td>
-                      <td>78</td>
-                      <td>62</td>
-                      <td>None</td>
-                      <td>John Doe</td>
-                      <td>Completed</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>2025-03-06 06:30</td>
-                      <td>2025-03-06 09:00</td>
-                      <td>City B</td>
-                      <td>City D</td>
-                      <td>100</td>
-                      <td>20</td>
-                      <td>85</td>
-                      <td>70</td>
-                      <td>None</td>
-                      <td>Jane Smith</td>
-                      <td>Completed</td>
-                    </tr>
-                    <tr>
-                      <td>7</td>
-                      <td>2025-03-07 08:30</td>
-                      <td>2025-03-07 12:00</td>
-                      <td>City E</td>
-                      <td>City C</td>
-                      <td>130</td>
-                      <td>26</td>
-                      <td>95</td>
-                      <td>88</td>
-                      <td>Charging Station B</td>
-                      <td>John Doe</td>
-                      <td>Completed</td>
-                    </tr>
-                    <tr>
-                      <td>8</td>
-                      <td>2025-03-08 14:30</td>
-                      <td>2025-03-08 18:00</td>
-                      <td>City D</td>
-                      <td>City B</td>
-                      <td>95</td>
-                      <td>19</td>
-                      <td>80</td>
-                      <td>65</td>
-                      <td>None</td>
-                      <td>Jane Smith</td>
-                      <td>Completed</td>
-                    </tr>
-                    <tr>
-                      <td>9</td>
-                      <td>2025-03-09 07:15</td>
-                      <td>2025-03-09 10:00</td>
-                      <td>City A</td>
-                      <td>City E</td>
-                      <td>85</td>
-                      <td>17</td>
-                      <td>85</td>
-                      <td>73</td>
-                      <td>None</td>
-                      <td>John Doe</td>
-                      <td>Completed</td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>2025-03-10 11:30</td>
-                      <td>2025-03-10 15:00</td>
-                      <td>City C</td>
-                      <td>City D</td>
-                      <td>120</td>
-                      <td>24</td>
-                      <td>90</td>
-                      <td>80</td>
-                      <td>Charging Station A</td>
-                      <td>Jane Smith</td>
-                      <td>Completed</td>
+                      <td>105</td>
+                      <td>22/03/2025 13:30:00</td>
+                      <td>22/03/2025 15:30:00</td>
+                      <td>2h</td>
+                      <td>100 km</td>
+                      <td>9 L</td>
+                      <td>10 kWh</td>
+                      <td>50 km/h</td>
+                      <td>Route E</td>
+                      <td>Heavy traffic</td>
                     </tr>
                   </tbody>
                 </table>

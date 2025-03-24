@@ -6,6 +6,7 @@ class ServicePage {
       _this.costPerformancePieChartMake('cost_performance_pie_chart');
 
       _this.handleGrapsTooltips();
+      _this.maintenanceCostTrendGraph();
       _this.initTable();
     });
   }
@@ -212,6 +213,66 @@ class ServicePage {
     //     $('#flot-tooltip4').hide();
     //   }
     // });
+  }
+
+  maintenanceCostTrendGraph(label_x, label_y) {
+    var data = {
+      labels: ['Dec 2024', 'Jan 2025', 'Feb 2025', 'March 2025', 'April 2025', 'May 2025'],
+      datasets: [{
+        backgroundColor: Looper.getColors('brand').indigo,
+        borderColor: Looper.getColors('brand').indigo,
+        data: [4200, 4800, 5250, 4950, 5100, 5500]
+      }]
+    };
+
+    var canvas = $(`#maintenance_cost_trend_graph`)[0].getContext('2d');
+    var chart = new Chart(canvas, {
+      type: 'bar',
+      data: data,
+      options: {
+        responsive: true,
+        legend: {
+          display: false
+        },
+        title: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            gridLines: {
+              display: true,
+              drawBorder: false,
+              drawOnChartArea: false
+            },
+            ticks: {
+              maxRotation: 0,
+              maxTicksLimit: 10
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Months' // Label for the x-axis
+            }
+          }],
+          yAxes: [{
+            gridLines: {
+              display: true,
+              drawBorder: false
+            },
+            ticks: {
+              beginAtZero: true,
+              stepSize: 500,
+              callback: function(value) {
+                return '$' + value.toLocaleString(); // Add "$" sign and format
+              }
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Cost' // Label for the y-axis
+            }
+          }]
+        }
+      }
+    });
   }
 }
 
