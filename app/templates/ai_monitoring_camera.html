@@ -1,0 +1,304 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="card card-fluid ai-monitoring-camera">
+    <div class="card-header" style="height: 60px;">
+      Vehicle Cabin Dashboard Monitoring
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="dashboard-card bg-white p-3 mb-3">
+            <h5 class="text-danger">Driver Behavior</h5>
+            <div class="row mt-4">
+              <div class="col-6 mb-2">
+                <img src="https://www.shutterstock.com/image-photo/shot-inside-car-happy-man-260nw-1148143106.jpg" class="driver-img" alt="Driver Alertness">
+                <p class="text-center mt-2 font-weight-bold">Driver Alertness</p>
+              </div>
+              <div class="col-6 mb-2">
+                <img src="https://www.cag.org.in/sites/default/files/inline-images/seat-belt-4227630_960_720.jpg" class="driver-img" alt="Seatbelt Compliance">
+                <p class="text-center mt-2 font-weight-bold">Seatbelt Compliance</p>
+              </div>
+              <div class="col-6 mb-2">
+                <img src="https://cdn.prod.website-files.com/595d6b420002832258c527cb/618abc9cdfbae01bc36d2ce5_hero_advanced_drowsiness.jpg" class="driver-img" alt="Drowsiness Detection">
+                <p class="text-center mt-2 font-weight-bold">Drowsiness Detection</p>
+              </div>
+              <div class="col-6 mb-2">
+                <img src="https://img.freepik.com/premium-photo/young-woman-using-mobile-phone-while-driving-car-bad-weather-condition_176402-8397.jpg" class="driver-img" alt="Phone Usage">
+                <p class="text-center mt-2 font-weight-bold">Phone Usage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="list-group list-group-bordered mb-3">
+            <div class="list-group-item">
+              <div class="list-group-item-body">
+                Speed
+              </div>
+              <div class="list-group-item-figure">
+                <span class="font-weight-bold text-primary">75 km/h</span>
+              </div>
+            </div>
+
+            <div class="list-group-item">
+              <div class="list-group-item-body">
+                Fuel Level
+              </div>
+              <div class="list-group-item-figure">
+                <span class="font-weight-bold text-primary">50%</span>
+              </div>
+            </div>
+
+            <div class="list-group-item">
+              <div class="list-group-item-body">
+                Engine Temperature
+              </div>
+              <div class="list-group-item-figure">
+                <span class="font-weight-bold text-primary">90°C</span>
+              </div>
+            </div>
+
+            <div class="list-group-item">
+              <div class="list-group-item-body">
+                Battery Voltage
+              </div>
+              <div class="list-group-item-figure">
+                <span class="font-weight-bold text-primary">12.5V</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Real-time Cabin Monitoring Events</div>
+        <div class="card-body">
+           <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Vehicle</th>
+                <th>Event Type</th>
+                <th>Timestamp</th>
+                <th>Duration (secs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="align-middle sorting_1">
+                  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/456">Apex</a>
+                </td>
+                <td>Distraction</td>
+                <td>2025-04-02 12:45:30</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td class="align-middle sorting_1">
+                  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/456">Toyota</a>
+                </td>
+                <td>Yawning</td>
+                <td>2025-04-02 12:50:10</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td class="align-middle sorting_1">
+                  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/456">Audi</a>
+                </td>
+                <td>Phone Usage</td>
+                <td>2025-04-02 13:05:45</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td class="align-middle sorting_1">
+                  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/456">BMW</a>
+                </td>
+                <td>No Seatbelt</td>
+                <td>2025-04-02 13:10:20</td>
+                <td>4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Accident Event Analysis</div>
+        <div class="card-body">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Vehicle</th>
+                <th>Accident Time</th>
+                <th>Driver Action</th>
+                <th>Speed at Impact (km/h)</th>
+                <th>Seatbelt Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="align-middle sorting_1">
+                  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/456">Apex</a>
+                </td>
+                <td>2025-04-01 18:32:10</td>
+                <td>Phone Usage</td>
+                <td>80</td>
+                <td>Not Worn</td>
+              </tr>
+              <tr>
+                <td class="align-middle sorting_1">
+                  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+                  </a>
+                  <a href="vehicle_show#id/456">Toyota</a>
+                </td>
+                <td>2025-04-01 20:15:00</td>
+                <td>Yawning</td>
+                <td>60</td>
+                <td>Worn</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Distraction Events
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Event Type</th>
+                <th>Severity</th>
+                <th>Timestamp</th>
+                <th>Vehicle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Phone Use</td><td>Critical</td><td>2025-04-02 12:50:20</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">Toyota</a>
+</td></tr>
+              <tr><td>2</td><td>Smoking</td><td>Medium</td><td>2025-04-02 13:05:10</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">BMW</a>
+</td></tr>
+              <tr><td>3</td><td>Looking Away</td><td>Low</td><td>2025-04-02 13:10:15</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">Car</a>
+</td></tr>
+              <tr><td>4</td><td>Eating</td><td>Medium</td><td>2025-04-02 13:20:05</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">Truck</a>
+</td></tr>
+              <tr><td>5</td><td>Yawning</td><td>High</td><td>2025-04-02 12:45:33</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">Apex</a>
+</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Accident Analysis
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Accident Time</th>
+                <th>Vehicle</th>
+                <th>Driver Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>2025-04-01 08:30:00</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">Car</a>
+</td><td>Using Mobile Phone</td></tr>
+              <tr><td>2</td><td>2025-03-28 15:15:00</td><td class="align-middle sorting_1">
+  <a href="vehicle_show#id/456" class="tile tile-img mr-1">
+    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
+  </a>
+  <a href="vehicle_show#id/456">Truck</a>
+</td><td>Yawning & Fatigue</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Driver Fatigue Analysis
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Driver</th>
+                <th>Fatigue Score</th>
+                <th>Alert Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td> John D.</td><td>85</td><td>3</td></tr>
+              <tr><td>2</td><td>Sarah L.</td><td>92</td><td>5</td></tr>
+              <tr><td>3</td><td>Emma W.</td><td>78</td><td>2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

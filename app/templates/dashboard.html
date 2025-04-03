@@ -4,12 +4,12 @@
     <div class="col-lg-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
-          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+          <a href="{{ url_for('main.vehicles') }}" class="metric metric-bordered text-center no-margin">
             <b>Total Vechicle</b>
             <p class="metric-value h3 mt-2">
-              <sub><i class="fas fa-car font-size-25 text-success"></i></sub> <span class="value">32000</span>
+              <sub><i class="fas fa-car font-size-25 text-success"></i></sub> <span class="value">700</span>
             </p>
-            <b class="mt-3">EV: 30000 | ICE: 2000</b>
+            <b class="mt-3">EV: 450 | ICE: 250</b>
             <p class="text-success font-weight-bold"><i class="fa fa-arrow-up" aria-hidden="true"></i> (+4 New)</p>
           </a>
         </div>
@@ -51,7 +51,7 @@
     <div class="col-lg-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
-          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+          <a href="{{ url_for('main.service') }}" class="metric metric-bordered text-center no-margin">
             <b>Service</b>
             <p class="metric-value h3 mt-3">
               <sub><i class="fas fa-wrench font-size-25 text-success"></i></sub> <span class="value">77</span>
@@ -65,7 +65,7 @@
     <div class="col-lg-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
-          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+          <a href="{{ url_for('main.routing') }}" class="metric metric-bordered text-center no-margin">
             <b>Routes</b>
             <p class="metric-value h3 mt-3">
               <sub><i class="fas fa-route font-size-25 text-success"></i></sub> <span class="value">67</span>
@@ -92,6 +92,44 @@
   </div>
 
   <div class="row">
+    <div class="col-sm-6">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Distance Scoreboard</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">7.14M</span>
+            </p>
+            <p class="mt-2">GPS Distance Last Month (mi)</p>
+            <p class="border-top" style="margin-top: 44px;">
+              <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -9.48 M</span><br>
+              vs previos month
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Time Scoreboard</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">235.19K</span>
+            </p>
+            <p class="mt-2">Driving Time Last Month (hrs)</p>
+            <p class="border-top" style="margin-top: 44px;">
+              <span style="color: red; font-size: 20px;"><i class="fa fa-arrow-down" aria-hidden="true"></i> -277.47 M</span><br>
+              vs previos month
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-xl-5">
       <div class="card card-fluid">
         <div class="card-body">
@@ -109,9 +147,9 @@
 
             <div class="col-sm-4" style="margin-top: 60px;">
               <nav class="nav nav-tabs flex-column border-0">
-                <a href="javascript:void(0);" class="nav-link active" style="border-color: #00a28a;padding: 0px;padding-left: 15px;margin-bottom: 20px;padding-top: 1px;"><span class="font-weight-bold" style="color: #00a28a">ON ROUTE</span> <br>32000</a>
-                <a href="javascript:void(0);" class="nav-link active" style="border-color: #036a5b;padding: 0px;padding-left: 15px;margin-bottom: 20px;padding-top: 1px;"><span class="font-weight-bold" style="color: #036a5b">AVAILABLE</span> <br>320</a>
-                <a href="javascript:void(0);" class="nav-link active" style="border-color: #ea6759;padding: 0px;padding-left: 15px;margin-bottom: 20px;padding-top: 1px;"><span class="font-weight-bold" style="color: #ea6759">OUT OF SERVICE</span> <br>200</a>
+                <a href="javascript:void(0);" class="nav-link active" style="border-color: #00a28a;padding: 0px;padding-left: 15px;margin-bottom: 20px;padding-top: 1px;"><span class="font-weight-bold" style="color: #00a28a">Active</span> <br>350</a>
+                <a href="javascript:void(0);" class="nav-link active" style="border-color: #036a5b;padding: 0px;padding-left: 15px;margin-bottom: 20px;padding-top: 1px;"><span class="font-weight-bold" style="color: #036a5b">Idle</span> <br>250</a>
+                <a href="javascript:void(0);" class="nav-link active" style="border-color: #ea6759;padding: 0px;padding-left: 15px;margin-bottom: 20px;padding-top: 1px;"><span class="font-weight-bold" style="color: #ea6759">In Shop</span> <br>100</a>
               </nav>
             </div>
           </div>
@@ -224,8 +262,10 @@
     <div class="col-lg-6">
       <div class="card card-fluid">
         <div class="card-body">
-          <h3 class="card-title text-center"> EV Usage </h3>
-          <div id="ev_usage_graph_area" class="flot"></div>
+          <h3 class="card-title text-center"> Fleet Usage: EV vs Fuel with Cost Impact </h3>
+          <div>
+            <canvas id="ev_usage_graph_area" width="100%" height="300"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -234,7 +274,7 @@
       <div class="card card-fluid">
         <div class="card-body">
           <h3 class="card-title text-center"> Weekly Idl Cost </h3>
-          <div id="weekly_idl_cost_graph" class="flot"></div>
+          <div id="weekly_idl_cost_graph" class="flot" style="width:100%;height:300px"></div>
         </div>
       </div>
     </div>
@@ -661,22 +701,22 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="card-footer-item">
-                <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Fuel Used Dividend </div>
+                <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Low Risk </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="card-footer-item">
-                <i class="fa fa-fw fa-circle text-primary"></i> <div class="text-muted small"> Fuel Used Dividend </div>
+                <i class="fa fa-fw fa-circle text-primary"></i> <div class="text-muted small"> Mild Risk </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="card-footer-item">
-                <i class="fa fa-fw fa-circle text-warning"></i> <div class="text-muted small"> Fuel Used Dividend </div>
+                <i class="fa fa-fw fa-circle text-warning"></i> <div class="text-muted small"> Medium Risk </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="card-footer-item">
-                <i class="fa fa-fw fa-circle text-danger"></i> <div class="text-muted small"> Fuel Used Dividend </div>
+                <i class="fa fa-fw fa-circle text-danger"></i> <div class="text-muted small"> High Risk </div>
               </div>
             </div>
           </div>
@@ -705,6 +745,31 @@
           </div>
           <div class="card-footer-item">
             <i class="fa fa-fw fa-circle text-red"></i> <div class="text-muted small"> Fuel Wastage </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Fuel vs. Efficiency Scatter Plot &nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="Each Circle Represents a Trip: Each point (circle) on the scatter plot represents a single trip made by the vehicle <br>X-Axis: The horizontal axis shows the fuel consumption of the trip in liters per 100 kilometers (L/100 km).<br>Y-Axis: The vertical axis displays the efficiency of the trip in kilometers per liter (km/L), calculated as the inverse of fuel consumption.<br><br><strong>Color Coding:</strong><br>Green: Represents high efficiency, where the vehicle used less fuel and traveled more kilometers per liter.<br>Orange: Indicates moderate efficiency, where fuel consumption and efficiency are average.<br>Red: Indicates low efficiency, where the vehicle used more fuel and traveled fewer kilometers per liter.<br>"><span class="menu-icon fas fa-info"></span> Info</button>
+        </div>
+        <div class="card-body">
+          <iframe src="/fuel-vs-efficiency-scatter-plot-graph" style="min-height: 600px; width: 100%; border: none;" id="fuel_vs_efficiency_scatter_plot_graph_iframe"></iframe>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-item">
+            <span style="font-weight: bold; color: green; font-size: 22px;">--</span> <div class="text-muted small"> Good Efficiency (> 10 km/L) </div>
+          </div>
+          <div class="card-footer-item">
+            <span style="font-weight: bold; color: #e38000; font-size: 22px;">--</span> <div class="text-muted small"> Moderate Efficiency (7-10 km/L) </div>
+          </div>
+          <div class="card-footer-item">
+            <span style="font-weight: bold; color: red; font-size: 22px;">--</span> <div class="text-muted small"> Low Efficiency (< 7 km/L) </div>
           </div>
         </div>
       </div>

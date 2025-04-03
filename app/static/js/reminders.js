@@ -32,20 +32,27 @@ class RemindersPage {
         data: 'vehicle_name',
         className: 'align-middle'
       }, {
-        data: 'service_type',
-        className: 'align-middle'
+         data: 'service_task',
+         className: 'align-middle'
       }, {
-        data: 'service_date',
-        className: 'align-middle'
+       data: 'status',
+       className: 'align-middle'
       }, {
-        data: 'service_provider',
-        className: 'align-middle'
+       data: 'next_due',
+       className: 'align-middle'
       }, {
-        data: 'cost',
-        className: 'align-middle'
+       data: 'active_work_order',
+       className: 'align-middle'
       }, {
-        data: 'next_service_due',
-        className: 'align-middle text-right',
+       data: 'completed',
+       className: 'align-middle text-right',
+       orderable: false,
+       searchable: false
+      }, {
+       data: 'watchers',
+       className: 'align-middle text-right',
+       orderable: false,
+       searchable: false
       }],
       columnDefs: [{
         targets: 0,

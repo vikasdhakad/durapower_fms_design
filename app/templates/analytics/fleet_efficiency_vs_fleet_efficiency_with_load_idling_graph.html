@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet Efficiency vs Efficacy</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="fleetChart"></canvas>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var ctx = document.getElementById("fleetChart").getContext("2d");
+
+      var fleetChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Trip 1", "Trip 2", "Trip 3", "Trip 4", "Trip 5"],
+          datasets: [
+            {
+              label: "Fleet Efficiency",
+              data: [85, 88, 80, 83, 87],
+              backgroundColor: "rgba(5, 40, 122, 0.7)",
+              borderColor: "rgba(5, 40, 122)",
+              borderWidth: 1
+            },
+            {
+              label: "Fleet Efficacy",
+              data: [75, 78, 76, 79, 77],
+              backgroundColor: "rgba(0, 84, 55, 0.7)",
+              borderColor: "rgba(0, 84, 55)",
+              borderWidth: 1
+            },
+            {
+              label: "Load %",
+              data: [80, 83, 85, 88, 85],
+              type: "line",
+              borderColor: "orange",
+              backgroundColor: "orange",
+              fill: false,
+              tension: 0.3,
+              borderWidth: 2,
+              yAxisID: "y1"
+            },
+            {
+              label: "Idling %",
+              data: [10, 12, 8, 9, 7],
+              type: "line",
+              borderColor: "red",
+              backgroundColor: "red",
+              fill: false,
+              tension: 0.3,
+              borderWidth: 2,
+              yAxisID: "y1",
+              borderDash: [5, 5]
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              title: {
+                display: true,
+                text: "Efficiency & Efficacy (%)"
+              }
+            },
+            y1: {
+              position: "right",
+              beginAtZero: true,
+              max: 100,
+              title: {
+                display: true,
+                text: "Load & Idling (%)"
+              },
+              grid: {
+                drawOnChartArea: false
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: "top"
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

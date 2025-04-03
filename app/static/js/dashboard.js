@@ -11,12 +11,23 @@ class DashboardPage {
       _this.top5AggressiveDriversChart();
       _this.handleGrapsTooltips();
       _this.driverSafetyScorecardPieChartMake('driver_safety_scorecard');
+      _this.fuelVsEfficiencyScatterPlotGraphMake('fuel_vs_efficiency_scatter_plot_graph');
+      
 
       setTimeout(function() {
         _this.manageVehicleConditionEasyPieChart(_this);
-        _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "32000")
+        _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "700")
       }, 1500); // 2000 milliseconds (2 seconds) delay
+
+      setTimeout(_this.retryIframeForFuelVsEfficiencyScatterPlotGraph, 5000); // 5 seconds
     });
+  }
+
+  retryIframeForFuelVsEfficiencyScatterPlotGraph() {
+    let iframe = document.getElementById('fuel_vs_efficiency_scatter_plot_graph_iframe');
+    iframe.src = '';  // Temporarily remove the source
+    iframe.src = '/fuel-vs-efficiency-scatter-plot-graph';  // Reassign the source
+    console.log('Retrying iframe load...');
   }
 
   addCenterTextOnTotalVechicleEasyPieChart(id, text1){
@@ -26,7 +37,7 @@ class DashboardPage {
     ctx.font = "30px Arial";
 
     ctx.rotate(299.22);  // Rotate by the angle
-    ctx.fillText(text1, -40, 5);
+    ctx.fillText(text1, -28, 5);
 
     ctx.font = "15px Arial";
     ctx.fillText("Vehicles", -30, 25);
@@ -90,7 +101,7 @@ class DashboardPage {
         data: [155, 65, 465, 265, 225, 325, 80]
       }]
     };
-    _this.makeBarGraph(driving_distance_graph, 'driving_distance_graph', '', '');
+    _this.makeBarGraph(driving_distance_graph, 'driving_distance_graph', 'Driver', 'Distance');
   }
 
   makeBarGraph(data, id, label_x, label_y) {
@@ -142,60 +153,76 @@ class DashboardPage {
   }
 
   evUsageGraphMake(id) {
-    var hoursAndDistanceData = [
-      [1, 400], [2, 350], [3, 500], [4, 600], [5, 650], [6, 456],
-      [7, 276], [8, 289], [9, 334], [10, 510], [11, 480],
-      [12, 470], [13, 460], [14, 510], [15, 515], [16, 530]
-    ]; // dataset
+    var ctx = $(`#${id}`)[0].getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+          {
+            label: 'EV Usage',
+            data: [45, 35, 30, 25, 35, 40, 50],
+            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Fuel Usage',
+            data: [35, 25, 20, 15, 25, 30, 40],
+            backgroundColor: 'rgba(75, 192, 192, 0.7)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Total Cost ($)',
+            type: 'line',
+            data: [40, 30, 25, 20, 39, 46, 99],
+            borderColor: 'black',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.4,
+            yAxisID: 'y-cost' // This will link the line chart to the secondary y-axis
+          }
+        ]
+      },
 
-    var dataset = [{
-      label: 'EV Usage',
-      data: hoursAndDistanceData,
-      color: Looper.colors.brand.blue
-    }];
-
-    var options = {
-      series: {
-        lines: {
-          show: true,
-          fill: true
+      options: {
+        responsive: true,
+        legend: { display: true },
+        scales: {
+          xAxes: [{
+            stacked: true,
+            grid: {
+              display: false
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Days of the Week' // Adjusted the label to match the data
+            }
+          }],
+          yAxes: [{
+            stacked: true,
+            beginAtZero: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Usage (Liter/Kwh)' // Left y-axis for usage
+            }
+          },
+          {
+            id: 'y-cost', // The second y-axis for the total cost
+            position: 'right', // Positioning the cost scale to the right side
+            scaleLabel: {
+              display: true,
+              labelString: 'Cost ($)' // Right y-axis for cost
+            },
+            ticks: {
+              beginAtZero: true,
+              max: 120 // You can adjust the max value according to the expected cost range
+            }
+          }]
         }
-      },
-      xaxis: {
-        tickLength: 0,
-        axisLabel: 'Hours',
-        axisLabelUseCanvas: true,
-        axisLabelFontSizePixels: 12,
-        axisLabelPadding: 10,
-        axisLabelFontFamily: 'inherit, sans-serif',
-        axisLabelColour: Looper.getMutedColor(),
-        //tickSize: [40, 'year'],
-      },
-      yaxis: {
-        axisLabel: 'Distance (KM)',
-        axisLabelUseCanvas: true,
-        axisLabelFontSizePixels: 12,
-        axisLabelPadding: 3,
-        axisLabelFontFamily: 'inherit, sans-serif',
-        axisLabelColour: Looper.getMutedColor(),
-        tickFormatter: function tickFormatter(v, axis) {
-          return v;
-        }
-      },
-      legend: {
-        noColumns: 3,
-        position: 'nw'
-      },
-      grid: {
-        hoverable: true,
-        borderWidth: 0,
-        color: Looper.getMutedColor()
       }
-    }; // merge our setting with flot options
-
-    options = $.extend(true, {}, Looper.flotDefaultOptions(), options); // init chart
-
-    $(`#${id}`).plot(dataset, options);
+    });
   }
 
   weeklyIdlCostLineGraphMake(id) {
@@ -400,10 +427,18 @@ class DashboardPage {
         },
         scales: {
           xAxes: [{
-            stacked: true  // Stack the bars
+            stacked: true,  // Stack the bars
+            scaleLabel: {
+              display: true,
+              labelString: 'Driver'
+            }
           }],
           yAxes: [{
-            stacked: true  // Stack the bars
+            stacked: true,  // Stack the bars
+            scaleLabel: {
+              display: true,
+              labelString: 'Score'
+            }
           }]
         }
       }
@@ -445,6 +480,11 @@ class DashboardPage {
       ctx.fillText("Average Score", width + 5, height - 12);
     }, 3500);
   }
+
+  fuelVsEfficiencyScatterPlotGraphMake(id) {
+  
+  }
+
 
 }
 

@@ -47,4 +47,187 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-fluid">
+        <div class="card-header">6-Month Fleet Roadmap</div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 85px;">Month</th>
+                <th>Action</th>
+                <th>Reason</th>
+                <th>Suggested Next Step</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Month 1</td>
+                <td>Assess Current Fleet Utilization</td>
+                <td>Evaluate current vehicle load, maintenance costs, and performance</td>
+                <td>Monitor vehicle performance data and identify any underperforming vehicles</td>
+              </tr>
+              <tr>
+                <td>Month 2</td>
+                <td>Purchase 3 New Trucks</td>
+                <td>Due to increased demand, heavy load, and performance issues with current fleet</td>
+                <td>Analyze available models for purchasing based on efficiency and cost</td>
+              </tr>
+              <tr>
+                <td>Month 3</td>
+                <td>Replace Low-Efficiency Vehicle</td>
+                <td>One or more vehicles may have high maintenance costs and low fuel efficiency</td>
+                <td>Investigate trade-in options and compare new vehicle models</td>
+              </tr>
+              <tr>
+                <td>Month 4</td>
+                <td>Evaluate Fuel Usage and Energy Efficiency</td>
+                <td>Review fuel vs. energy consumption data, and assess if there’s a better mix of EV vs. fuel vehicles</td>
+                <td>Adjust fleet composition based on operational costs (e.g., replace fuel vehicles with EVs if possible)</td>
+              </tr>
+              <tr>
+                <td>Month 5</td>
+                <td>Optimize Route Planning</td>
+                <td>Use data from previous months to recommend new optimized routes</td>
+                <td>Implement route optimization software or systems for better fuel/energy management</td>
+              </tr>
+              <tr>
+                <td>Month 6</td>
+                <td>Prepare for Future Expansion</td>
+                <td>Assess the growth rate of the fleet and plan for additional vehicles if demand continues to rise</td>
+                <td>Create a forecast for fleet growth and plan for vehicle purchases for the next 12 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header">Driver Habit Insights and Improvement Plan</div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Driver Name</th>
+                <th>Avg. Fuel Usage (L/100km)</th>
+                <th>Idling Time (mins)</th>
+                <th>AI Suggestion</th>
+                <th>Estimated Savings (%)</th>
+                <th>Recommended Training</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td>12.5</td>
+                <td>30</td>
+                <td>Reduce idling by 50%</td>
+                <td>10%</td>
+                <td>Idling Reduction Training</td>
+              </tr>
+              <tr>
+                <td>Alex Smith</td>
+                <td>10.8</td>
+                <td>15</td>
+                <td>Avoid rapid acceleration</td>
+                <td>8%</td>
+                <td>Smooth Driving Techniques</td>
+              </tr>
+              <tr>
+                <td>Maria Lee</td>
+                <td>14.2</td>
+                <td>45</td>
+                <td>Optimize gear shifting</td>
+                <td>12%</td>
+                <td>Gear Shifting and Efficiency Training</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Driver Risk score prediction 
+          &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-secondary btn-xs" data-toggle="tooltip" data-placement="top" data-html="true" title="" data-original-title="The chart above shows the driver’s risk score over time. The model predicts that if the trend continues:<br><br><strong>Month 7 → Risk Score ~ 99 (Very High)<br><br>Month 8 → Risk Score ~ 112 (Critical)<br><br>Month 9 → Risk Score ~ 124 (Extremely Risky)</strong>"><span class="menu-icon fas fa-info"></span> Info</button>
+        </div>
+        <div class="card-body">
+          <canvas id="driver_risk_score_prediction_graph" style="height: 320px"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          ICE vs EV fleet performance (TCO comparison)
+        </div>
+        <div class="card-body">
+          <canvas id="ice_vs_ev_fleet_performance_tco_comparison" style="height: 320px"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-8">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Fleet Efficiency vs Fleet Efficiency with Load & Idling
+        </div>
+        <div class="card-body">
+          <iframe src="/fleet-efficiency-vs-fleet-efficiency-with-load-idling-graph" style="min-height: 400px; width: 100%; border: none;" id="fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph_view"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-8">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Predictive Vehicle Lifespan
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Vehicle ID</th>
+                <th>Current Mileage</th>
+                <th>Last Service</th>
+                <th>Avg Monthly Mileage</th>
+                <th>Predicted Lifespan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>V123</td>
+                <td>120,000 km</td>
+                <td>2025-01-15</td>
+                <td>2,000 km</td>
+                <td>12 months</td>
+              </tr>
+              <tr>
+                <td>V124</td>
+                <td>80,000 km</td>
+                <td>2024-12-10</td>
+                <td>1,500 km</td>
+                <td>24 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -33,3 +33,26 @@
 .horizontal-rating .percentage {
   font-size: 16px;
 }
+
+.tooltip-inner {
+  width: 100% !important; /* Ensure the tooltip takes up the full width */
+  max-width: 100% !important; /* Remove any max-width constraints */
+  white-space: normal; /* Allow the text to wrap */
+}
+
+.tooltip {
+  word-wrap: break-word; /* Allow the tooltip to break words for long content */
+}
+
+.ai-monitoring-camera .dashboard-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.ai-monitoring-camera .driver-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}

@@ -57,10 +57,11 @@
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
-            <b>Devices</b>
-            <p class="metric-value h3 mt-2">
-              <sub><i class="fas fa-car font-size-25 text-success"></i></sub> <span class="value">768</span>
-            </p>
+            <b>Total Used Energy/Fuels</b>
+            <b class="mt-3">
+              Energy: <span class="text-primary">768 Kwh</span><br>
+              Fuel: <span class="text-primary">768B L</span>
+            </b>
           </a>
         </div>
       </div>
@@ -102,8 +103,8 @@
                   <td>440K</td>
                   <td>2.68M</td>
                   <td>768</td>
-                  <td>1.40M gallons</td>
-                  <td>1.075B gallons</td>
+                  <td>1.40M Litres</td>
+                  <td>1.075B Litres</td>
                   <td>$4.90M</td>
                   <td>$3.77B</td>
                   <td>22,000 kWh</td>
@@ -118,8 +119,8 @@
                   <td>425K</td>
                   <td>2.55M</td>
                   <td>768</td>
-                  <td>1.33M gallons</td>
-                  <td>1.020B gallons</td>
+                  <td>1.33M Litres</td>
+                  <td>1.020B Litres</td>
                   <td>$4.65M</td>
                   <td>$3.57B</td>
                   <td>20,500 kWh</td>
@@ -134,8 +135,8 @@
                   <td>410K</td>
                   <td>2.48M</td>
                   <td>768</td>
-                  <td>1.28M gallons</td>
-                  <td>985.6M gallons</td>
+                  <td>1.28M Litres</td>
+                  <td>985.6M Litres</td>
                   <td>$4.48M</td>
                   <td>$3.44B</td>
                   <td>19,500 kWh</td>
@@ -150,8 +151,8 @@
                   <td>430K</td>
                   <td>2.6M</td>
                   <td>768</td>
-                  <td>1.35M gallons</td>
-                  <td>1.035B gallons</td>
+                  <td>1.35M Litres</td>
+                  <td>1.035B Litres</td>
                   <td>$4.73M</td>
                   <td>$3.64B</td>
                   <td>21,000 kWh</td>
@@ -166,8 +167,8 @@
                   <td>420K</td>
                   <td>2.5M</td>
                   <td>768</td>
-                  <td>1.30M gallons</td>
-                  <td>1.004B gallons</td>
+                  <td>1.30M Litres</td>
+                  <td>1.004B Litres</td>
                   <td>$4.55M</td>
                   <td>$3.51B</td>
                   <td>20,000 kWh</td>
@@ -182,8 +183,8 @@
                   <td>400K</td>
                   <td>2.4M</td>
                   <td>768</td>
-                  <td>1.25M gallons</td>
-                  <td>960M gallons</td>
+                  <td>1.25M Litres</td>
+                  <td>960M Litres</td>
                   <td>$4.38M</td>
                   <td>$3.36B</td>
                   <td>19,000 kWh</td>
@@ -198,5 +199,97 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header" style="height: 60px;">
+          <h5>Cost Projection Widget</h5><br>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table dt-responsive nowrap w-100 dataTable table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Current Fuel Cost ($)</th>
+                  <th>Projected Savings ($)</th>
+                  <th>Projected Additional Cost ($)</th>
+                  <th>Estimated Fuel Efficiency (km/L)</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>350</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>12.5</td>
+                  <td>Current behavior is average.</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>340</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>13</td>
+                  <td>Slight improvement in fuel efficiency.</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>330</td>
+                  <td>50</td>
+                  <td>-</td>
+                  <td>13.5</td>
+                  <td>10% improvement in behavior (reduce idling).</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>340</td>
+                  <td>-</td>
+                  <td>30</td>
+                  <td>12.8</td>
+                  <td>Increase in fuel cost due to harsh braking.</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>360</td>
+                  <td>-</td>
+                  <td>50</td>
+                  <td>12</td>
+                  <td>Further decrease in fuel efficiency.</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>370</td>
+                  <td>200</td>
+                  <td>-</td>
+                  <td>13.5</td>
+                  <td>Potential savings of $200 if idling is reduced by 30%.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card card-fluid">
+        <div class="card-header" style="height: 60px;">
+          <h5>Fuel Cost Projections for Next 6 Months Based on Driver Behavior</h5><br>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <canvas id="fuel_cost_projections_for_next_6_months_based_on_driver_behavior" width="100%" height="600"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
           

@@ -1,5 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
+  <div class="row">
+    <div class="col-sm-4">
+      <a class="btn btn-primary mb-2" href="{{ url_for('main.ai_monitoring_camera') }}"><span class="menu-icon fas fa-camera"></span> AI Monitoring Camera</a>
+    </div>
+  </div>
   {% include "ai_driven_analytics/graphs_and_details.html" %}
 
   <div class="row">

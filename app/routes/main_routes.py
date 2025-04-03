@@ -13,6 +13,9 @@ from app.views.ai_driven_analytics_view import ai_driven_analytics_view
 from app.views.routing_view import routing_view
 from app.views.reports_view import reports_view
 from app.views.fuel_and_energy_view import fuel_and_energy_view
+from app.views.fuel_vs_efficiency_scatter_plot_graph_view import fuel_vs_efficiency_scatter_plot_graph_view
+from app.views.fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph_view import fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph_view
+from app.views.ai_monitoring_camera_view import ai_monitoring_camera_view
 
 main = Blueprint('main', __name__)
 
@@ -72,3 +75,15 @@ def reports():
 @main.route('/fuel-and-energy')
 def fuel_and_energy():
   return fuel_and_energy_view()
+
+@main.route('/fuel-vs-efficiency-scatter-plot-graph')
+def fuel_vs_efficiency_scatter_plot_graph():
+  return fuel_vs_efficiency_scatter_plot_graph_view()
+
+@main.route('/fleet-efficiency-vs-fleet-efficiency-with-load-idling-graph')
+def fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph():
+  return fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph_view()
+
+@main.route('/ai-monitoring-camera')
+def ai_monitoring_camera():
+  return ai_monitoring_camera_view()

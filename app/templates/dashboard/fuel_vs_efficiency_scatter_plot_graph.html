@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <style>
+      canvas {
+        max-width: 100%;
+        width: 100%;
+        margin: auto;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="scatterChart"></canvas>
+    <script>
+      $(document).ready(function() {
+        var ctx = document.getElementById('scatterChart').getContext('2d');
+        
+        var scatterData = {
+          datasets: [
+            {
+              label: 'green',
+              data: Array.from({ length: 20 }, () => ({ x: Math.random() * 4 + 6, y: Math.random() * 10 + 10 })),
+              backgroundColor: 'green'
+            },
+            {
+              label: 'yellow',
+              data: Array.from({ length: 15 }, () => ({ x: Math.random() * 4 + 10, y: Math.random() * 3 + 7 })),
+              backgroundColor: 'orange'
+            },
+            {
+              label: 'red',
+              data: Array.from({ length: 10 }, () => ({ x: Math.random() * 4 + 14, y: Math.random() * 2 + 5 })),
+              backgroundColor: 'red'
+            }
+          ]
+        };
+        
+        var scatterChart = new Chart(ctx, {
+          type: 'scatter',
+          data: scatterData,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: true,
+                position: 'top'
+              },
+              tooltip: {
+                enabled: true, // Enabling tooltips
+                callbacks: {
+                  title: function(tooltipItem) {
+                    var efficiency = '';
+                    if (tooltipItem[0].dataset.label == 'green'){
+                      efficiency = 'High Efficiency'
+                    } else if(tooltipItem[0].dataset.label == 'yellow') {
+                      efficiency = 'Moderate Efficiency'
+                    } else {
+                      efficiency = 'Low Efficiency'
+                    }
+                    return `${efficiency}: Vehicle ${(tooltipItem[0].raw.x + tooltipItem[0].raw.y).toString().split(".")[0]}`; // Dataset name
+                  },
+                  label: function(tooltipItem) {
+                    // Showing x and y coordinates of the point
+                    return `${tooltipItem.raw.y.toFixed(2)} km/L`;
+                  }
+                }
+              },
+              annotation: {
+                annotations: {
+                  dottedLine1: {
+                    type: 'line',
+                    yMin: 10,
+                    yMax: 10,
+                    borderColor: 'green',
+                    borderWidth: 2,
+                    borderDash: [5, 5]
+                  },
+                  dottedLine2: {
+                    type: 'line',
+                    yMin: 7,
+                    yMax: 7,
+                    borderColor: '#e38000',
+                    borderWidth: 2,
+                    borderDash: [5, 5]
+                  },
+                  dottedLine3: {
+                    type: 'line',
+                    yMin: 5,
+                    yMax: 5,
+                    borderColor: 'red',
+                    borderWidth: 2,
+                    borderDash: [5, 5]
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                type: 'linear',
+                position: 'bottom',
+                title: {
+                  display: true,
+                  text: 'Fuel Consumption (Liters per 100km)'
+                },
+                grid: {
+                  display: false
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Efficiency (km/L)'
+                },
+                grid: {
+                  display: false
+                }
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
