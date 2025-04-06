@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      #fleetChart {
+        width: 100%;
+        height: 305px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="fleetChart"></canvas>
+
+    <script>
+      $(document).ready(function () {
+        const ctx = document.getElementById('fleetChart').getContext('2d');
+
+        const data = {
+          labels: ['V123', 'V124', 'V125'],
+          datasets: [
+            {
+              label: 'Time in Use',
+              data: [45, 55, 50],
+              borderColor: 'green',
+              backgroundColor: 'rgb(0, 166, 48, .5)',
+              yAxisID: 'y',
+            },
+            {
+              label: 'Idle Time',
+              data: [25, 15, 20],
+              borderColor: 'red',
+              backgroundColor: 'rgb(223, 0, 0, .5)',
+              yAxisID: 'y',
+            },
+            {
+              label: 'Idle Cost',
+              data: [250, 2, 200],
+              type: 'line',
+              borderColor: 'orange',
+              backgroundColor: 'orange',
+              yAxisID: 'y1',
+              tension: 0.3,
+              fill: false,
+              pointBackgroundColor: 'orange',
+              pointRadius: 5,
+              borderDash: [5, 5]  // Dotted line
+            }
+          ]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Fleet Utilization: Time in Use vs Idle Time and Idle Cost',
+                font: { size: 16 }
+              },
+              legend: {
+                labels: {
+                  usePointStyle: true
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    if (context.dataset.label === 'Idle Cost') {
+                      return 'Idle Cost: $' + context.formattedValue;
+                    }
+                    return context.dataset.label + ': ' + context.formattedValue + ' hrs';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Vehicle ID'
+                }
+              },
+              y: {
+                type: 'linear',
+                position: 'left',
+                title: {
+                  display: true,
+                  text: 'Time (hours)'
+                },
+                beginAtZero: true
+              },
+              y1: {
+                type: 'linear',
+                position: 'right',
+                title: {
+                  display: true,
+                  text: 'Idle Cost ($)'
+                },
+                beginAtZero: true,
+                grid: {
+                  drawOnChartArea: false
+                }
+              }
+            }
+          }
+        };
+
+        new Chart(ctx, config);
+      });
+    </script>
+  </body>
+</html>

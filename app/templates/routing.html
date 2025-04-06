@@ -1,252 +1,395 @@
 {% extends "layout.html" %}
+
 {% block content %}
-  <div class="row">
-    <div class="col-xl-12">
-      <div class="card card-fluid">
-        <div class="card-header" style="height: 60px;">
-          <h5>Route Optimization</h5><br>
-        </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    table {
+      margin-top: 20px;
+    }
 
-        <div class="card-body">
-          <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th style="width: 140px;">
-                  Vehicle
-                </th>
-                <th> Original Route </th>
-                <th> Optimized Route </th>
-                <th> Traffic Condition </th>
-                <th> Original Route (Time) </th>
-                <th> Optimized Route (Time) </th>
-                <th> Original Energy (kWh) </th>
-                <th> Optimized Energy (kWh) </th>
-                <th> Toll Tax Amount</th>
-                <th> Energy Saved (%) </th>
-                <th> Time Saved (min) </th>
-              </tr>
-            </thead>
+    table th, table td {
+      text-align: center;
+    }
 
-            <tbody>
-              <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Toyota</a>
-                </td>
-                <td>Zone A → Zone B</td>
-                <td>Zone A → Zone C → Zone B</td>
-                <td>Low → Moderate</td>
-                <td>45 min</td>
-                <td>35 min</td>
-                <td>30 kWh</td>
-                <td>25 kWh</td>
-                <td>$14</td>
-                <td>15%</td>
-                <td>17</td>
-              </tr>
+    .table-container {
+      margin-bottom: 40px;
+    }
 
-              <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Audi</a>
-                </td>
-                <td>Zone C → Zone D</td>
-                <td>Zone C → Zone E → Zone D</td>
-                <td>High → Moderate</td>
-                <td>50 min</td>
-                <td>45 min</td>
-                <td>35 kWh</td>
-                <td>30 kWh</td>
-                <td>$16</td>
-                <td>20%</td>
-                <td>8</td>
-              </tr>
+    .heading {
+        text-align: center;
+    }
 
-              <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">BMW</a>
-                </td>
-                <td>Zone E → Zone F</td>
-                <td>Zone B → Zone F → Zone E</td>
-                <td>Heavy → Light</td>
-                <td>55 min</td>
-                <td>45 min</td>
-                <td>40 kWh</td>
-                <td>35 kWh</td>
-                <td>$11</td>
-                <td>1215%%</td>
-                <td>15</td>
-              </tr>
+    .value-icon {
 
-              <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Truck</a>
-                </td>
-                <td>Zone A → Zone C</td>
-                <td>Zone B → Zone C → Zone E</td>
-                <td>Moderate → Low</td>
-                <td>60 min</td>
-                <td>50 min</td>
-                <td>45 kWh</td>
-                <td>40 kWh</td>
-                <td>$10</td>
-                <td>23%</td>
-                <td>10</td>
-              </tr>
+        cursor: pointer;
 
-              <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Lorrey</a>
-                </td>
-                <td>Zone B → Zone E</td>
-                <td>Zone C → Zone D → Zone F</td>
-                <td>Light → Heavy</td>
-                <td>47 min</td>
-                <td>36 min</td>
-                <td>50 kWh</td>
-                <td>45 kWh</td>
-                <td>$25</td>
-                <td>9%</td>
-                <td>12</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        font-size: 18px;
+
+        color: blue;
+
+    }
+
+    .value-tooltip {
+
+        visibility: hidden;
+
+        position: absolute;
+
+        background-color: rgba(0, 0, 0, 0.7);
+
+        color: white;
+
+        border-radius: 5px;
+
+        padding: 5px;
+
+        font-size: 14px;
+
+    }
+
+   .value-icon:hover + .value-tooltip {
+
+        visibility: visible;
+
+    }
+
+    .row {
+
+        margin-bottom: 30px;
+
+    }
+
+    .chart-container {
+
+        display: flex;
+
+        justify-content: space-around;
+
+        margin-bottom: 40px;
+
+    }
+
+    .chart-container canvas {
+
+        width: 45% !important;
+
+        height: auto !important;
+
+    }
+  </style>
+
+  <div class="containerx">
+    <div class="card card-fluid">
+      <div class="card-header">
+        <h3 class="heading">
+          AI-Driven Vehicle-to-Route Matching
+          <span class="value-icon" data-toggle="tooltip" data-placement="top" title="Prevents low-fuel or unhealthy vehicles from being assigned to long routes.">💡</span>
+        </h3>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xl-6">
-      <div class="card card-fluid">
-        <div class="card-body">
-          <canvas id="route_optimization_comparison_bar_graph" style="width:100%;max-width:600px"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xl-6">
-      <div class="card card-fluid">
-        <div class="card-body">
-          <canvas id="before_vs_after_route_optimization_energy_consumption_bar_graph" style="width:100%;max-width:600px"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xl-7">
-      <div class="card card-fluid">
-        <div class="card-header" style="height: 60px;">
-          <h5>AI-Driven Route Predictions</h5><br>
-        </div>
-
-        <div class="card-body">
-          <table id="xreal_time_traffic_and_demand_data_show_table" class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th style="width: 140px;">
-                  Vehicle
-                </th>
-                <th> Predicted Travel Time (min) </th>
-                <th> Predicted Energy Consumption (kWh) </th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Car</a>
-                </td>
-                <td>33</td>
-                <td>24</td>
-              </tr>
-
-               <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Audi</a>
-                </td>
-                <td>38</td>
-                <td>29</td>
-              </tr>
-
-               <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Truck</a>
-                </td>
-                <td>48</td>
-                <td>34</td>
-              </tr>
-
-               <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">BMW</a>
-                </td>
-                <td>55</td>
-                <td>46</td>
-              </tr>
-
-               <tr>
-                <td class=" col-checker align-middle">
-                  <a href="vehicle_show#id/1" class="tile tile-img mr-1">
-                    <img class="img-fluid" src="https://anl.sg/31/isuzu-24ft-truck-lorries-open-canopy-box.jpg" alt="Card image cap">
-                  </a>
-                  <a href="vehicle_show#id/1">Lexus</a>
-                </td>
-                <td>72</td>
-                <td>68</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-5">
-      <div class="card card-fluid" style="height: 440px;">
-        <div class="card-header" style="height: 60px;">
-          <h5>Vehicle Assignment to Route (Short vs Long)</h5><br>
-        </div>
-
-        <div class="card-body">
-          <canvas class="mt-5 ml-4" id="vehicle_assignment_to_route_short_vs_long" height="200" width="200" style="margin-left: 130px !important;"></canvas>
-        </div>
-
-        <div class="card-footer">
-          <div class="card-footer-item">
-            <i class="fa fa-fw fa-circle text-success"></i> <div class="text-muted small"> Short Route </div>
-          </div>
-
-          <div class="card-footer-item">
-            <i class="fa fa-fw fa-circle text-warning"></i> <div class="text-muted small"> Long Route </div>
+      <div class="card-body">
+        <div class="table-container">
+          <div class="row">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Route</th>
+                  <th>Reason</th>
+                  <th>Fuel Level (%)</th>
+                  <th>Battery Level (%)</th>
+                  <th>Vehicle Health (%)</th>
+                  <th>Toll Tax</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>V-205</td>
+                  <td>R-1001</td>
+                  <td>Best fuel efficiency, good condition</td>
+                  <td>80%</td>
+                  <td>N/A</td>
+                  <td>95%</td>
+                  <td>$12</td>
+                  <td>25/3/25 9:00</td>
+                </tr>
+                <tr>
+                  <td>V-308</td>
+                  <td>R-1002</td>
+                  <td>Shortest trip, sufficient fuel level</td>
+                  <td>60%</td>
+                  <td>N/A</td>
+                  <td>85%</td>
+                  <td>$32</td>
+                  <td>25/3/25 9:10</td>
+                </tr>
+                <tr>
+                  <td>V-412</td>
+                  <td>R-1003</td>
+                  <td>EV vehicle, high charge, best energy efficiency</td>
+                  <td>N/A</td>
+                  <td>90%</td>
+                  <td>88%</td>
+                  <td>$17</td>
+                  <td>25/3/25 9:20</td>
+                </tr>
+                <tr>
+                  <td>V-517</td>
+                  <td>R-1004</td>
+                  <td>Avoid—low fuel, high maintenance risk</td>
+                  <td>25%</td>
+                  <td>N/A</td>
+                  <td>60%</td>
+                  <td>$10</td>
+                  <td>25/3/25 9:30</td>
+                </tr>
+                <tr>
+                  <td>V-678</td>
+                  <td>R-1005</td>
+                  <td>Strong battery, reliable performance</td>
+                  <td>N/A</td>
+                  <td>85%</td>
+                  <td>92%</td>
+                  <td>$13</td>
+                  <td>25/3/25 9:40</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="card card-fluid">
+      <div class="card-header">
+        <h3 class="heading">
+          Route Compliance & Deviation Alerts
+          <span class="value-icon" data-toggle="tooltip" data-placement="top" title="Alerts fleet managers when drivers go off-route (unauthorized trips).">💡</span>
+        </h3>
+      </div>
+      <div class="card-body">
+        <!-- Route Compliance & Deviation Alerts Table -->
+        <div class="table-container">
+          <div class="row">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Deviation Detected</th>
+                  <th>Deviation Reason</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>V-205</td>
+                  <td>❌ No</td>
+                  <td>N/A</td>
+                  <td>25/3/25 9:00</td>
+                </tr>
+                <tr>
+                  <td>V-308</td>
+                  <td>✅ Yes</td>
+                  <td>Driver took a shortcut</td>
+                  <td>25/3/25 9:15</td>
+                </tr>
+                <tr>
+                  <td>V-412</td>
+                  <td>✅ Yes</td>
+                  <td>Vehicle has insufficient fuel for the assigned route</td>
+                  <td>25/3/25 9:30</td>
+                </tr>
+                <tr>
+                  <td>V-517</td>
+                  <td>✅ Yes</td>
+                  <td>Traffic reroute</td>
+                  <td>25/3/25 9:45</td>
+                </tr>
+                <tr>
+                  <td>V-678</td>
+                  <td>✅ Yes</td>
+                  <td>EV or hybrid vehicle has low battery charge affecting the vehicle’s range</td>
+                  <td>25/3/25 10:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-fluid">
+      <div class="card-header">
+        <h3 class="heading">
+          Route Downtime & Risk Prediction
+          <span class="value-icon" data-toggle="tooltip" data-placement="top" title="Helps fleet managers avoid high-risk routes that cause vehicle failures.">💡</span>
+        </h3>
+      </div>
+      <div class="card-body">
+        <!-- Route Downtime & Risk Prediction Table -->
+        <div class="table-container">
+          <div class="row">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Route</th>
+                  <th>Avg Downtime (min)</th>
+                  <th>Historical Breakdowns (%)</th>
+                  <th>Road Condition</th>
+                  <th>Risk Level</th>
+                  <th>Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>R-1001</td>
+                  <td>3 min</td>
+                  <td>5%</td>
+                  <td>Good</td>
+                  <td>Low</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>R-1002</td>
+                  <td>5 min</td>
+                  <td>12%</td>
+                  <td>Moderate</td>
+                  <td>Medium</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>R-1003</td>
+                  <td>10 min</td>
+                  <td>25%</td>
+                  <td>Poor</td>
+                  <td>High</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>R-1004</td>
+                  <td>2 min</td>
+                  <td>3%</td>
+                  <td>Good</td>
+                  <td>Low</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>R-1005</td>
+                  <td>8 min</td>
+                  <td>18%</td>
+                  <td>Rough</td>
+                  <td>Medium</td>
+                  <td>25/3/25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-fluid">
+      <div class="card-body">
+        <!-- Backhaul Optimization Table -->
+        <div class="table-container">
+          <h3 class="heading">
+            Backhaul Optimization
+            <span class="value-icon" data-toggle="tooltip" data-placement="top" title="Identifies return trips with loads to reduce empty vehicle routes.">💡</span>
+          </h3>
+          <div class="row">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Route</th>
+                  <th>Return Trip Load</th>
+                  <th>Fuel Efficiency</th>
+                  <th>Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>V-205</td>
+                  <td>R-1001</td>
+                  <td>Full</td>
+                  <td>Good</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>V-308</td>
+                  <td>R-1002</td>
+                  <td>Partial</td>
+                  <td>Moderate</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>V-412</td>
+                  <td>R-1003</td>
+                  <td>None</td>
+                  <td>Poor</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>V-517</td>
+                  <td>R-1004</td>
+                  <td>Full</td>
+                  <td>Excellent</td>
+                  <td>25/3/25</td>
+                </tr>
+                <tr>
+                  <td>V-678</td>
+                  <td>R-1005</td>
+                  <td>Partial</td>
+                  <td>Good</td>
+                  <td>25/3/25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-fluid">
+      <div class="card-body">
+        <!-- Graph Section -->
+        <div class="chart-container">
+          <div class="col-md-6">
+            <canvas id="vehicleHealthPieChart"></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="routeRiskPieChart"></canvas>
+          </div>
+        </div>
+        </div>
+        <script>
+          // Chart.js - Vehicle Health Pie Chart
+          var ctx1 = document.getElementById('vehicleHealthPieChart').getContext('2d');
+          var vehicleHealthChart = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+              labels: ['Short Route', 'Long Route'],
+              datasets: [{
+                data: [80, 20],
+                backgroundColor: ['#36A2EB', '#FF6384'],
+                borderWidth: 1
+              }]
+            }
+          });
+          // Chart.js - Route Risk Pie Chart
+          var ctx2 = document.getElementById('routeRiskPieChart').getContext('2d');
+          var routeRiskChart = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+              labels: ['Low Risk', 'Medium Risk', 'High Risk'],
+              datasets: [{
+                data: [60, 30, 10],
+                backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'],
+                borderWidth: 1
+              }]
+            }
+          });
+        </script>
+      </div>
+    </div>
 {% endblock %}

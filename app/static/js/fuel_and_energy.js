@@ -34,6 +34,7 @@ class FuelAndEnergyPage {
 
       options: {
         responsive: true,
+        legend: { display: true },
         scales: {
           xAxes: [{
             gridLines: {

@@ -5,7 +5,7 @@ class DashboardPage {
 
       _this.proecessToDisplayBarGraph(_this);
       _this.evUsageGraphMake('ev_usage_graph_area');
-      _this.weeklyIdlCostLineGraphMake('weekly_idl_cost_graph');
+      // _this.weeklyIdlCostLineGraphMake('weekly_idle_cost_graph');
       _this.fuelUsagePieChartMake('fuel_usage_pie_chart');
 
       _this.top5AggressiveDriversChart();
@@ -16,10 +16,11 @@ class DashboardPage {
 
       setTimeout(function() {
         _this.manageVehicleConditionEasyPieChart(_this);
-        _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "700")
+        _this.addCenterTextOnTotalVechicleEasyPieChart('total_vechicle_easypiechart_3', "1500")
       }, 1500); // 2000 milliseconds (2 seconds) delay
 
       setTimeout(_this.retryIframeForFuelVsEfficiencyScatterPlotGraph, 5000); // 5 seconds
+      setTimeout(_this.retryIframeForWeeklyIdleCostLineGraph, 5000); // 5 seconds 
     });
   }
 
@@ -27,6 +28,13 @@ class DashboardPage {
     let iframe = document.getElementById('fuel_vs_efficiency_scatter_plot_graph_iframe');
     iframe.src = '';  // Temporarily remove the source
     iframe.src = '/fuel-vs-efficiency-scatter-plot-graph';  // Reassign the source
+    console.log('Retrying iframe load...');
+  }
+
+  retryIframeForWeeklyIdleCostLineGraph() {
+    let iframe = document.getElementById('weekly_idle_cost_line_graph_iframe');
+    iframe.src = '';  // Temporarily remove the source
+    iframe.src = '/weekly-idle-cost-line-graph';  // Reassign the source
     console.log('Retrying iframe load...');
   }
 
@@ -44,9 +52,9 @@ class DashboardPage {
   }
 
   manageVehicleConditionEasyPieChart(_this){
-    _this.addCenterTextOnVehicleConditionEasyPieChart('vehicle_condition_easypiechart_1', "10%", "Health Rate")
-    _this.addCenterTextOnVehicleConditionEasyPieChart('vehicle_condition_easypiechart_2', "50%", "Health Rate")
-    _this.addCenterTextOnVehicleConditionEasyPieChart('vehicle_condition_easypiechart_3', "70%", "Health Rate")
+    _this.addCenterTextOnVehicleConditionEasyPieChart('vehicle_condition_easypiechart_1', "70%", "Health Rate")
+    _this.addCenterTextOnVehicleConditionEasyPieChart('vehicle_condition_easypiechart_2', "20%", "Health Rate")
+    _this.addCenterTextOnVehicleConditionEasyPieChart('vehicle_condition_easypiechart_3', "10%", "Health Rate")
   }
 
   addCenterTextOnVehicleConditionEasyPieChart(id, text1, text2){
@@ -226,58 +234,59 @@ class DashboardPage {
   }
 
   weeklyIdlCostLineGraphMake(id) {
-    var cost = [];
-    var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+    // var cost = [];
+    // var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     
-    // Example of cost data (replace these with actual values if needed)
-    var weeklyCost = [6, 45, 110, 145, 160, 130, 155];  // Example cost values for each day
+    // // Example of cost data (replace these with actual values if needed)
+    // var weeklyCost = [6, 45, 110, 145, 160, 130, 155];  // Example cost values for each day
 
-    // Create the dataset for cost
-    for (var i = 0; i < days.length; i++) {
-      cost.push([i, weeklyCost[i]]);  // Push cost and corresponding day index
-    }
+    // // Create the dataset for cost
+    // for (var i = 0; i < days.length; i++) {
+    //   cost.push([i, weeklyCost[i]]);  // Push cost and corresponding day index
+    // }
 
-    var dataset = [{
-      data: cost,
-      label: 'Cost ($)',
-      color: Looper.colors.brand.purple  // Adjust color if needed
-    }, {
-      data: days,
-      label: 'Days',
-      color: Looper.colors.brand.teal  // Adjust color if needed
-    }];
+    // var dataset = [{
+    //   data: cost,
+    //   label: 'Cost ($)',
+    //   color: Looper.colors.brand.purple  // Adjust color if needed
+    // }, {
+    //   data: days,
+    //   label: 'Days',
+    //   color: Looper.colors.brand.teal  // Adjust color if needed
+    // }];
     
-    var options = {
-      series: {
-        lines: {
-          show: true
-        },
-        points: {
-          fillColor: Looper.skin === 'dark' ? Looper.getColors('gray')[200] : Looper.white,
-          show: true
-        }
-      },
-      colors: [Looper.colors.brand.purple, Looper.colors.brand.teal],
-      grid: {
-        hoverable: true,
-        borderWidth: 0,
-        color: Looper.getMutedColor()
-      },
-      legend: {
-        position: 'se'
-      },
-      xaxis: {
-        ticks: days.map((day, index) => [index, day]),  // Map days to x-axis labels
-        tickLength: 0
-      },
-      yaxis: {
-        min: 0,
-        max: 200  // Adjust based on your cost range
-      }
-    }; // Merge our setting with flot options
+    // var options = {
+    //   series: {
+    //     lines: {
+    //       show: true
+    //     },
+    //     points: {
+    //       fillColor: Looper.skin === 'dark' ? Looper.getColors('gray')[200] : Looper.white,
+    //       show: true
+    //     }
+    //   },
+    //   colors: [Looper.colors.brand.purple, Looper.colors.brand.teal],
+    //   grid: {
+    //     hoverable: true,
+    //     borderWidth: 0,
+    //     color: Looper.getMutedColor()
+    //   },
+    //   legend: {
+    //     position: 'se'
+    //   },
+    //   xaxis: {
+    //     ticks: days.map((day, index) => [index, day]),  // Map days to x-axis labels
+    //     tickLength: 0
+    //   },
+    //   yaxis: {
+    //     min: 0,
+    //     max: 200  // Adjust based on your cost range
+    //   }
+    // }; // Merge our setting with flot options
 
-    options = $.extend(true, {}, Looper.flotDefaultOptions(), options);
-    $(`#${id}`).plot(dataset, options);
+    // options = $.extend(true, {}, Looper.flotDefaultOptions(), options);
+    // $(`#${id}`).plot(dataset, options);
   }
 
   fuelUsagePieChartMake(id){
@@ -410,7 +419,7 @@ class DashboardPage {
           backgroundColor: "#346cb0",
           data: yValues1
         }, {
-          label: "Harsh Cornering",
+          label: "Harsh Speeding",
           backgroundColor: "#23b5ee",
           data: yValues2
         }, {

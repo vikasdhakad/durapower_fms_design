@@ -127,6 +127,7 @@ class AnalyticsPage {
       data: data,
       options: {
         responsive: true,
+        legend: { display: true },
         plugins: {
           legend: {
             display: true,

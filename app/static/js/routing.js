@@ -2,9 +2,9 @@ class RoutingPage {
   constructor(){
     var _this = this
     $(document).ready(function() {
-      _this.routeOptimizationComparisonBarGraphChart();
-      _this.beforeVsAfterRouteOptimizationEnergyConsumptionBarGraph();
-      _this.vehicleAssignmentToRouteShortVsLongGraph('vehicle_assignment_to_route_short_vs_long');
+      // _this.routeOptimizationComparisonBarGraphChart();
+      // _this.beforeVsAfterRouteOptimizationEnergyConsumptionBarGraph();
+      // _this.vehicleAssignmentToRouteShortVsLongGraph('vehicle_assignment_to_route_short_vs_long');
     });
   }
 

@@ -16,6 +16,7 @@ from app.views.fuel_and_energy_view import fuel_and_energy_view
 from app.views.fuel_vs_efficiency_scatter_plot_graph_view import fuel_vs_efficiency_scatter_plot_graph_view
 from app.views.fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph_view import fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph_view
 from app.views.ai_monitoring_camera_view import ai_monitoring_camera_view
+from app.views.weekly_idle_cost_line_graph_view import weekly_idle_cost_line_graph_view
 
 main = Blueprint('main', __name__)
 
@@ -87,3 +88,7 @@ def fleet_efficiency_vs_fleet_efficiency_with_load_idling_graph():
 @main.route('/ai-monitoring-camera')
 def ai_monitoring_camera():
   return ai_monitoring_camera_view()
+
+@main.route('/weekly-idle-cost-line-graph')
+def weekly_idle_cost_line_graph():
+  return weekly_idle_cost_line_graph_view()
