@@ -104,8 +104,8 @@
                             </p>
 
                             <p class="ml-6">
-                              Total Cost<br>
-                              <span class="card-title font-weight-bold">$182.92/mi</span>
+                              Maintenance Cost<br>
+                              <span class="card-title font-weight-bold">$18,292.33</span>
                             </p>
                           </div>
                         </div>
@@ -121,6 +121,45 @@
                       <canvas id="cost_of_owenership_bar_chart" style="min-height: 300px;"></canvas>
                     </div>
                   </div>
+
+                  <div class="card card-fluid">
+                    <div class="card-heading">
+                      <center class="mt-2">
+                        <h5>Earnings vs. Maintenance Over Time<h5>
+                      </center>
+                    </div>
+                    <div class="card-body">
+                      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+                      <canvas id="lineChartEarningsVsMaintenance"></canvas>
+                      <script>
+                        // 2. Line Chart: Earnings vs Maintenance
+                        new Chart(document.getElementById('lineChartEarningsVsMaintenance'), {
+                          type: 'line',
+                          data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                            datasets: [
+                              {
+                                label: 'Earnings ($)',
+                                data: [5000, 5500, 5800, 6000, 6100],
+                                borderColor: 'green',
+                                fill: false
+                              },
+                              {
+                                label: 'Maintenance ($)',
+                                data: [1000, 1200, 1300, 1800, 2100],
+                                borderColor: 'red',
+                                fill: false
+                              }
+                            ]
+                          },
+                          options: {
+                            responsive: true
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>                      
                 </div>
               </div>
             </div>
@@ -312,4 +351,6 @@
 
     </div>
   </div>
+
+
 {% endblock %}

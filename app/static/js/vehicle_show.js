@@ -22,7 +22,7 @@ class VehicleShowPage {
           backgroundColor: "#379900",
           data: yValues1
         }, {
-          label: "Service Cost",
+          label: "Maintenance cost",
           backgroundColor: "#ea6759",
           data: yValues2
         }, {
@@ -35,7 +35,7 @@ class VehicleShowPage {
         legend: { display: true },
         title: {
           display: true,
-          text: "Cost of Owenership"
+          text: "Cost of Ownership"
         },
         scales: {
           xAxes: [{

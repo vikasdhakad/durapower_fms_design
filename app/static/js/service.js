@@ -23,6 +23,18 @@ class ServicePage {
     $('#actionFilter').on('change', function() {
       table.column(4).search(this.value).draw();
     });
+
+    var table2 = $('#maintenanceTable2').DataTable({
+      "paging": true,        // Enable pagination
+      "searching": true,     // Enable search functionality
+      "ordering": true,      // Enable sorting
+      "order": [[0, 'asc']], // Default sorting by Vehicle Name
+    });
+
+    // Add event listener for the action filter
+    $('#actionFilter').on('change', function() {
+      table2.column(4).search(this.value).draw();
+    });
   }
 
   maintenancePerformanceCostGraphMake(id){
@@ -55,11 +67,11 @@ class ServicePage {
     var maintenanceFrequencyPercentage = percentageData(maintenanceFrequencyData);
 
     var dataset = [{
-      label: 'Average Maintenance',
+      label: 'Scheduled Maintenance',
       data: averageMaintenancePercentage,
       color: Looper.colors.brand.blue
     },{
-      label: 'Maintenance Frequency',
+      label: 'Unscheduled Frequency',
       data: maintenanceFrequencyPercentage,
       color: Looper.colors.brand.red
     }];

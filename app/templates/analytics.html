@@ -193,6 +193,123 @@
   </div>
 
   <div class="row">
+    <div class="col-sm-6">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <style>
+        .chart-container {
+          width: 100%;
+          display: inline-block;
+          vertical-align: top;
+          margin: 1%;
+          background: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px #ddd;
+        }
+        h3 {
+          text-align: center;
+        }
+        .alert-box {
+          list-style: none;
+          padding: 0;
+        }
+        .alert-box li {
+          margin-bottom: 10px;
+          color: red;
+        }
+      </style>
+
+      <div class="card card-fluid">
+        <div class="card-header">
+          TCO: Warranty vs. Non-Warranty
+        </div>
+        <div class="card-body">
+          <canvas id="barChart"></canvas>        
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card card-fluid">
+        <div class="card-header">
+          Top 5 High-TCO Vehicles
+        </div>
+        <div class="card-body">
+          <canvas id="horizontalBar"></canvas>        
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="card card-fluid">
+        <div class="card-header">
+          <h5>Vehicles Needing Sell Alert</h5>
+        </div>
+        <div class="card-body">
+          <ul id="alertBox" class="alert-box"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. Bar Chart: TCO Warranty vs Non-Warranty
+      new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Vehicle A', 'Vehicle B', 'Vehicle C'],
+          datasets: [
+            {
+              label: 'Warranty TCO ($)',
+              backgroundColor: 'rgba(54, 162, 235, 0.7)',
+              data: [3000, 2500, 2700]
+            },
+            {
+              label: 'Non-Warranty TCO ($)',
+              backgroundColor: 'rgba(255, 99, 132, 0.7)',
+              data: [4500, 5000, 4700]
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+
+      // 3. Alert List for Sell
+      const vehicleAlerts = [
+        { name: 'Vehicle X1', cost: 5200, earnings: 4900 },
+        { name: 'Vehicle X2', cost: 6100, earnings: 5800 }
+      ];
+      vehicleAlerts.forEach(v => {
+        $('#alertBox').append(`<li>🚨 ${v.name} — TCO: $${v.cost}, Earnings: $${v.earnings}</li>`);
+      });
+
+      // 4. Horizontal Bar Chart: Top 5 High TCO
+      new Chart(document.getElementById('horizontalBar'), {
+        type: 'bar',
+        data: {
+          labels: ['V-101', 'V-102', 'V-103', 'V-104', 'V-105'],
+          datasets: [{
+            label: 'TCO ($)',
+            backgroundColor: ['#dc3545', '#dc3545', '#ffc107', '#28a745', '#17a2b8'],
+            data: [6200, 5900, 4800, 3700, 3400]
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: { beginAtZero: true }
+          }
+        }
+      });
+    </script>
+  </div>
+
+  <div class="row">
     <div class="col-xl-8">
       <div class="card card-fluid">
         <div class="card-header">

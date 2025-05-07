@@ -10,7 +10,7 @@
               <sub><i class="fas fa-car font-size-25 text-success"></i></sub> <span class="value">1500</span>
             </p>
             <b class="mt-3">EV: 1000 | ICE: 250 | Hybrid: 250</b>
-            <p class="text-success font-weight-bold"><i class="fa fa-arrow-up" aria-hidden="true"></i> (+4 New EV)</p>
+            <p class="text-success font-weight-bold" style="margin-bottom: -6px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> (+4 New EV)</p>
           </a>
         </div>
       </div>
@@ -66,11 +66,11 @@
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="{{ url_for('main.routing') }}" class="metric metric-bordered text-center no-margin">
-            <b>Routes</b>
+            <b>Revenue</b>
             <p class="metric-value h3 mt-3">
-              <sub><i class="fas fa-route font-size-25 text-success"></i></sub> <span class="value">67</span>
+              <sub><i class="fas fa-usd font-size-25 text-success"></i></sub> <span class="value">13,467</span>
             </p>
-            <p class="text-success font-weight-bold" style="margin-top: 29px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> 11 vs last month</p>
+            <p class="text-success font-weight-bold" style="margin-top: 29px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> 33% vs last month</p>
           </a>
         </div>
       </div>
@@ -79,13 +79,15 @@
     <div class="col-lg-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
-          <a href="javascript:void(0)" class="metric metric-bordered no-margin">
+          <span class="metric metric-bordered no-margin">
             <b>Maintenance cost</b>
-            <p class="metric-value h3 mt-3">
-              <sub><i class="oi oi-timer font-size-25 text-success"></i></sub> <span class="value">$5,678</span>
-            </p>
-            <p class="font-weight-bold" style="margin-top: 29px; color: #e30101;"><i class="fa fa-arrow-down" aria-hidden="true"></i> $1,200 vs last month</p>
-          </a>
+            
+            <b class="mt-1">$5,678<br></b>
+
+            <b class="mt-2"><a href="/service#scheduled_table">Scheduled $4,000</a> <br> <a href="/service#unscheduled_table">Unscheduled $1678</a></b>
+
+            <p class="font-weight-bold" style="margin-top: 12px;margin-bottom: 3px; color: #e30101;"><i class="fa fa-arrow-down" aria-hidden="true"></i> $1,200 vs last month</p>
+          </span>
         </div>
       </div>
     </div>
@@ -99,7 +101,7 @@
           <div class="row">
             <div class="col-sm-8">
               <div class="text-center pt-3" style="margin-top: 35px;margin-bottom: 34px;">
-                <div class="chart-inline-group" style="height:214px">
+                <div class="chart-inline-group" style="height:234px">
                   <div class="easypiechart" data-toggle="easypiechart" data-percent="60" data-size="214" data-bar-color="#00a28a" data-track-color="true" data-scale-color="false" data-rotate="225"></div>
                   <div class="easypiechart" data-toggle="easypiechart" data-percent="50" data-size="174" data-bar-color="#036a5b" data-track-color="true" data-scale-color="false" data-rotate="225"></div>
                   <div class="easypiechart" data-toggle="easypiechart" data-percent="75" data-size="134" data-bar-color="#ea6759" data-track-color="true" data-scale-color="false" data-rotate="225" id="total_vechicle_easypiechart_3"></div>
@@ -139,31 +141,43 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="text-center pt-3">
-                <div class="chart-inline-group" style="height:214px">
+                <div class="chart-inline-group" style="height:177px">
                   <div class="easypiechart" data-toggle="easypiechart" data-percent="80" data-size="174" data-bar-color="#00a28a" data-track-color="true" data-scale-color="false" data-rotate="225" id="vehicle_condition_easypiechart_1">Good</div>
                 </div>
                 <h5>1000</h5>
                 <p>Vehicles</p>
+                <p>
+                  <b>Warranty</b> 400<br>
+                  <b>Non-Warranty</b> 600
+                </p>
               </div>
             </div>
 
             <div class="col-sm-4">
               <div class="text-center pt-3">
-                <div class="chart-inline-group" style="height:214px">
+                <div class="chart-inline-group" style="height:177px">
                   <div class="easypiechart" data-toggle="easypiechart" data-percent="50" data-size="174" data-bar-color="#f7c46c" data-track-color="true" data-scale-color="false" data-rotate="225" id="vehicle_condition_easypiechart_2">Satisfactory</div>
                 </div>
                 <h5>400</h5>
                 <p>Vehicles</p>
+                <p>
+                  <b>Warranty</b> 250<br>
+                  <b>Non-Warranty</b> 150
+                </p>
               </div>
             </div>
 
             <div class="col-sm-4">
               <div class="text-center pt-3">
-                <div class="chart-inline-group" style="height:214px">
+                <div class="chart-inline-group" style="height:177px">
                   <div class="easypiechart" data-toggle="easypiechart" data-percent="75" data-size="174" data-bar-color="#ea6759" data-track-color="true" data-scale-color="false" data-rotate="225" id="vehicle_condition_easypiechart_3">Critical</div>
                 </div>
                 <h5>100</h5>
                 <p>Vehicles</p>
+                <p>
+                  <b>Warranty</b> 70<br>
+                  <b>Non-Warranty</b> 30
+                </p>
               </div>
             </div>
           </div>
@@ -186,7 +200,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
@@ -194,7 +208,7 @@
             <p class="metric-value h3 mt-5">
               <span class="value">7.14M</span>
             </p>
-            <p class="mt-2">GPS Distance Last Month (mi)</p>
+            <p class="mt-2">GPS Distance Last Month (km)</p>
             <p class="border-top" style="margin-top: 44px;">
               <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -9.48 M</span><br>
               vs previos month
@@ -204,17 +218,89 @@
       </div>
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
-            <b>Time Scoreboard</b>
+            <b>Monthly Driving Report</b>
             <p class="metric-value h3 mt-5">
               <span class="value">235.19K</span>
             </p>
             <p class="mt-2">Driving Time Last Month (hrs)</p>
             <p class="border-top" style="margin-top: 44px;">
               <span style="color: red; font-size: 20px;"><i class="fa fa-arrow-down" aria-hidden="true"></i> -277.47 M</span><br>
+              vs previos month
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Revenue</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">13.56M</span>
+            </p>
+            <p class="mt-2">Total Revenue Last Month (USD)</p>
+            <p class="border-top" style="margin-top: 44px;">
+              <span style="color: green; font-size: 20px;"> <i class="fa fa-arrow-up" aria-hidden="true"></i> +9.48 M</span><br>
+              vs previos month
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Cost Incurred</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">220k</span>
+            </p>
+            <p class="mt-2">Cost Incurred Last Month (USD)</p>
+            <p class="border-top" style="margin-top: 44px;">
+              <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -310K</span><br>
+              vs previos month
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Maintenance Cost</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">118K</span>
+            </p>
+            <p class="mt-2">Maintenance Cost Last Month (USD)</p>
+            <p class="border-top" style="margin-top: 44px;">
+              <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -190K</span><br>
+              vs previos month
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card card-fluid">
+        <div class="card-body no-padding">
+          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+            <b>Net Income</b>
+            <p class="metric-value h3 mt-5">
+              <span class="value">33.18M</span>
+            </p>
+            <p class="mt-2">Net Income Last Month (USD)</p>
+            <p class="border-top" style="margin-top: 44px;">
+              <span style="color: green; font-size: 20px;"> <i class="fa fa-arrow-up" aria-hidden="true"></i> +19.48 M</span><br>
               vs previos month
             </p>
           </a>

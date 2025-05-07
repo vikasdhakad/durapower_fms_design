@@ -73,13 +73,28 @@ class DashboardPage {
   proecessToDisplayBarGraph(_this){
     var last_3_months_fuel_trends = {
       labels: ['Dec 2024', 'Jan 2025', 'Feb 2025'],
-      datasets: [{
-        backgroundColor: Looper.getColors('brand').indigo,
-        borderColor: Looper.getColors('brand').indigo,
-        data: [190, 320, 480]
-      }]
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Fuel Burned',
+          backgroundColor: Looper.getColors('brand').indigo,
+          borderColor: Looper.getColors('brand').indigo,
+          data: [190, 320, 480],
+          yAxisID: 'y-axis-fuel'
+        },
+        {
+          type: 'line',
+          label: 'Cost ($)',
+          data: [20, 80, 100],  // Example cost data – update with real values
+          borderColor: '#000000',
+          backgroundColor: 'rgba(0,0,0,0)',
+          pointBackgroundColor: '#000000',
+          fill: false,
+          yAxisID: 'y-axis-cost'
+        }
+      ]
     };
-    _this.makeBarGraph(last_3_months_fuel_trends, 'last_3_months_fuel_trends', 'Month', 'Fuel Burned');
+    _this.makeLast3MonthsFuelTrendsBarGraph(last_3_months_fuel_trends, 'last_3_months_fuel_trends', 'Month', 'Fuel Burned');
 
     var last_3_months_mileage_trends = {
       labels: ['Dec 2024', 'Jan 2025', 'Feb 2025'],
@@ -110,6 +125,73 @@ class DashboardPage {
       }]
     };
     _this.makeBarGraph(driving_distance_graph, 'driving_distance_graph', 'Driver', 'Distance');
+  }
+
+  makeLast3MonthsFuelTrendsBarGraph(data, id, label_x, label_y) {
+    var canvas = $(`#${id}`)[0].getContext('2d');
+    new Chart(canvas, {
+      type: 'bar',
+      data: data,
+      options: {
+        responsive: true,
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            gridLines: {
+              display: true,
+              drawBorder: false,
+              drawOnChartArea: false
+            },
+            ticks: {
+              maxRotation: 0,
+              maxTicksLimit: 3
+            },
+            scaleLabel: {
+              display: true,
+              labelString: label_x
+            }
+          }],
+          yAxes: [
+            {
+              id: 'y-axis-fuel',
+              position: 'left',
+              gridLines: {
+                display: true,
+                drawBorder: false
+              },
+              ticks: {
+                beginAtZero: true,
+                stepSize: 100
+              },
+              scaleLabel: {
+                display: true,
+                labelString: label_y
+              }
+            },
+            {
+              id: 'y-axis-cost',
+              position: 'right',
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                beginAtZero: true,
+                stepSize: 20,
+                callback: function(value) {
+                  return '$' + value;
+                }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Cost ($)'
+              }
+            }
+          ]
+        }
+      }
+    });
   }
 
   makeBarGraph(data, id, label_x, label_y) {
