@@ -1,22 +1,26 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="metric-row">
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="{{ url_for('main.vehicles') }}" class="metric metric-bordered text-center no-margin">
-            <b>Total Vechicle</b>
+            <b>Total Vehicles</b>
             <p class="metric-value h3 mt-2">
               <sub><i class="fas fa-car font-size-25 text-success"></i></sub> <span class="value">1500</span>
             </p>
-            <b class="mt-3">EV: 1000 | ICE: 250 | Hybrid: 250</b>
+            <div class="d-flex justify-content-between mb-4">
+              <b class="mt-3">EV: 1000</b>
+              <b class="mt-3">ICE: 250</b>
+              <b class="mt-3">Hybrid: 250</b>
+            </div>
             <p class="text-success font-weight-bold" style="margin-bottom: -6px;"><i class="fa fa-arrow-up" aria-hidden="true"></i> (+4 New EV)</p>
           </a>
         </div>
       </div>
     </div>
 
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="{{ url_for('main.alerts') }}" class="metric metric-bordered text-center no-margin">
@@ -32,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="{{ url_for('main.reminders') }}" class="metric metric-bordered text-center no-margin">
@@ -48,7 +52,7 @@
       </div>
     </div>
 
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="{{ url_for('main.service') }}" class="metric metric-bordered text-center no-margin">
@@ -62,7 +66,7 @@
       </div>
     </div>
 
-    <div class="col-lg-2">
+    <!-- <div class="col-lg-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="{{ url_for('main.routing') }}" class="metric metric-bordered text-center no-margin">
@@ -74,9 +78,9 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="col-lg-2">
+    <!-- <div class="col-lg-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <span class="metric metric-bordered no-margin">
@@ -90,14 +94,14 @@
           </span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="row">
     <div class="col-xl-5">
       <div class="card card-fluid">
         <div class="card-body">
-          <h3 class="card-title">Total Vechicle </h3>
+          <h3 class="card-title">Total Vehicles </h3>
           <div class="row">
             <div class="col-sm-8">
               <div class="text-center pt-3" style="margin-top: 35px;margin-bottom: 34px;">
@@ -200,7 +204,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
@@ -209,7 +213,7 @@
               <span class="value">7.14M</span>
             </p>
             <p class="mt-2">GPS Distance Last Month (km)</p>
-            <p class="border-top" style="margin-top: 44px;">
+            <p class="border-top" style="margin-top: 65px;">
               <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -9.48 M</span><br>
               vs previos month
             </p>
@@ -218,16 +222,16 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
-            <b>Monthly Driving Report</b>
+            <b>Time Scorecard</b>
             <p class="metric-value h3 mt-5">
               <span class="value">235.19K</span>
             </p>
             <p class="mt-2">Driving Time Last Month (hrs)</p>
-            <p class="border-top" style="margin-top: 44px;">
+            <p class="border-top" style="margin-top: 65px;">
               <span style="color: red; font-size: 20px;"><i class="fa fa-arrow-down" aria-hidden="true"></i> -277.47 M</span><br>
               vs previos month
             </p>
@@ -236,7 +240,7 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
@@ -245,7 +249,7 @@
               <span class="value">13.56M</span>
             </p>
             <p class="mt-2">Total Revenue Last Month (USD)</p>
-            <p class="border-top" style="margin-top: 44px;">
+            <p class="border-top" style="margin-top: 65px;">
               <span style="color: green; font-size: 20px;"> <i class="fa fa-arrow-up" aria-hidden="true"></i> +9.48 M</span><br>
               vs previos month
             </p>
@@ -254,7 +258,7 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
@@ -263,7 +267,7 @@
               <span class="value">220k</span>
             </p>
             <p class="mt-2">Cost Incurred Last Month (USD)</p>
-            <p class="border-top" style="margin-top: 44px;">
+            <p class="border-top" style="margin-top: 65px;">
               <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -310K</span><br>
               vs previos month
             </p>
@@ -272,25 +276,30 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
-          <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
+          <div class="metric metric-bordered text-center no-margin">
             <b>Maintenance Cost</b>
             <p class="metric-value h3 mt-5">
               <span class="value">118K</span>
             </p>
             <p class="mt-2">Maintenance Cost Last Month (USD)</p>
-            <p class="border-top" style="margin-top: 44px;">
+            <p class="mt-2 text-center">
+              <a href="/service#scheduled_table">Scheduled $4,000</a> <br> 
+              <a href="/service#unscheduled_table">Unscheduled $1678</a>  
+            </p>
+            
+            <p class="border-top" style="margin-top: 0px;">
               <span style="color: red; font-size: 20px;"> <i class="fa fa-arrow-down" aria-hidden="true"></i> -190K</span><br>
               vs previos month
             </p>
-          </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="card card-fluid">
         <div class="card-body no-padding">
           <a href="javascript:void(0)" class="metric metric-bordered text-center no-margin">
@@ -299,7 +308,7 @@
               <span class="value">33.18M</span>
             </p>
             <p class="mt-2">Net Income Last Month (USD)</p>
-            <p class="border-top" style="margin-top: 44px;">
+            <p class="border-top" style="margin-top: 65px;">
               <span style="color: green; font-size: 20px;"> <i class="fa fa-arrow-up" aria-hidden="true"></i> +19.48 M</span><br>
               vs previos month
             </p>
